@@ -1,24 +1,27 @@
 ---
-layout: post
-title: Coding cheatsheet
-author: [Drew Silcock]
-tags: [Coding]
-image: img/demo4.jpg
-date: "2014-07-05T12:00:00Z"
 draft: false
+excerpt: Here's a load of quick snippets of easy-to-forget but often used
+  commands, tricks and tips. It's got useful info about git, Vim, Python and
+  Perl.
+layout: post
+author:
+  - Drew Silcock
+title: Coding cheatsheet
+date: 2014-07-05T12:00:00Z
+description: Here's a load of quick snippets of easy-to-forget but often used
+  commands, tricks and tips. It's got useful info about git, Vim, Python and
+  Perl.
+image: img/demo4.jpg
+tags:
+  - Coding
 ---
-
-Here's a load of quick snippets of easy-to-forget but often used commands, tricks and tips. It's got useful info about git, Vim, Python and Perl.
-
-<!--more-->
-
 ## Git
 
 ### First commands
 
 These are the things you need to do when using `git` on a new computer:
 
-{% highlight bash lineanchors %}
+```shell
 # Change username associated with commits
 git config --global user.name "<USER>"
 
@@ -36,31 +39,27 @@ git config --global core.editor vim
 
 # Tell git to colour its output
 git config --global color.ui true
-{% endhighlight %}
+```
 
 ### Adding remote
 
 Add remote repository:
 
-{% highlight bash lineanchors %}
+```shell
 git remote add origin https://github.com/username/repository.git
-{% endhighlight %}
+```
 
 Then subsequently set local branch to track remote branch:
 
-{% highlight bash lineanchors %}
+```shell
 git branch --set-upstream master origin/<branch>
-{% endhighlight %}
+```
 
 ### Setting up git submodules
 
 Adding submodules in a git repository is as simple as editing the file `.gitmodules` in the root of the repository, with the following syntax:
 
-{% comment %}
-I'm not sure what highlighter to use for this. If anyone knows a better one, do let me know.
-{% endcomment %}
-
-{% highlight python lineanchors %}
+```toml
 [submodule "libfoo"]
     path = include/foo
     url = git://github.com/foo/libfoo.git
@@ -68,20 +67,20 @@ I'm not sure what highlighter to use for this. If anyone knows a better one, do 
 [submodule "libbar"]
     path = include/bar
     url = git://github.com/bar/libbar.git
-{% endhighlight %}
+```
 
 Then a quick:
 
-{% highlight bash lineanchors %}
+```shell
 git submodule init
 git submodule update
-{% endhighlight %}
+```
 
 ### Updating git submodules
 
 You might be tempted to think that updating all your submodules from their respective remotes is as simple as running `git submodule update`. But no, what that does is update the submodules to the version checked out in the remote of the root repo. What you need is to update the version of the submodules that is checked out by the root repo. Here's how to do it, assuming your submodule is called `subm`:
 
-{% highlight bash lineanchors %}
+```shell
 # Change into your submodule directory
 cd subm
 
@@ -93,7 +92,7 @@ cd ..
 
 # Check out the updated submodule
 git commit -am "Update subm"
-{% endhighlight %}
+```
 
 And you're done! It can be a bit annoying for updating loads of subdirectories, so I'm working on a short script to do it all for you. I'll update here once I finish it.
 
@@ -101,9 +100,9 @@ And you're done! It can be a bit annoying for updating loads of subdirectories, 
 
 If you've got nested submodules (i.e. a submodule within another submodule), then you need to do alter this slightly to update the nested submodules. As well as having each submodule within your submodule containing a `[submodule "foobar"]` within both your root `.gitmodules` and your submodule `.gitmodules`, you need to do the following from within the root repository to update all submodules and subsubmodules:
 
-{% highlight bash lineanchors %}
+```shell
 git submodule update --init --recursive
-{% endhighlight %}
+```
 
 ## Vim
 
@@ -111,26 +110,26 @@ git submodule update --init --recursive
 
 Here's the syntax for declaring vim script functions:
 
-{% highlight vim lineanchors %}
+```vim
 functions MyFunction ()
     do first thing
     do second thing
 endfunction
-{% endhighlight %}
+```
 
 And you then call it in Vim with:
 
-{% highlight vim lineanchors %}
+```vim
 :call MyFunction()
-{% endhighlight %}
+```
 
 ### Recognise custom filetypes
 
 I've got `moo.vim` files in my `~/.vim/after/syntax` and `~/.vim/after/ftplugin`, for all `moo` files with extension `.moo`. To get Vim to recognise these `.moo` files and apply the Vim scripts associated therewith, I need to create a file called `moo.vim` in `~/.vim/ftdetect/`, which contains the following:
 
-{% highlight vim lineanchors %}
+```vim
 au BufRead,BufNewFile *.moo set filetype=moo
-{% endhighlight %}
+```
 
 *Note*: You may have to wipe your `~/.vim/view` before Vim recognises old files as this new filetype.
 
@@ -138,29 +137,29 @@ au BufRead,BufNewFile *.moo set filetype=moo
 
 Vim comes with the ability to edit files remotely over scp. This can be achieved via:
 
-{% highlight vim lineanchors %}
+```shell
 vim scp://user@servername//path/to/file
-{% endhighlight %}
+```
 
 However, trying to save gives the error:
 
-{% highlight vim lineanchors %}
+```shell
 E382: Cannot write, 'buftype' option is set
-{% endhighlight %}
+```
 
 In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meaning the buffer cannot be saved to file. This can be bypassed by using `:Nwrite` from the [netrw.vim](http://www.vim.org/scripts/script.php?script_id=1075) that comes bundled with Vim 7.0:
 
-{% highlight vim lineanchors %}
+```vim
 :Nwrite
-{% endhighlight %}
+```
 
 ## sshfs
 
 To allow other non-root users to access a filesystem mounted over ssh, use:
 
-{% highlight bash lineanchors %}
+```shell
 sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
-{% endhighlight %}
+```
 
 ## Photoshop
 
@@ -186,7 +185,7 @@ Note that this is based on the ancient CS3 that's installed on the Mac I'm curre
 
 Skeleton `argparse` template:
 
-{% highlight python lineanchors %}
+```python
 # Import the library
 import argparse
 
@@ -214,35 +213,35 @@ args = parser.parse_args()
 # Accessing the values of the arguments
 myArgument = args.compulsory
 myName = args.name
-{% endhighlight %}
+```
 
 ### Replace `~` with home directory
 
 This is just a fun little script that replaces `~` in a string with the path to the user directory, e.g. `/home/drew`. Useful for taking input and output filenames from input, and want people to be able to use their familiar tilde.
 
-{% highlight python lineanchors %}
+```python
 import re
 import os
 
 # Replace '~' in fname with path to user dir
 fname = re.sub("~", os.environ['HOME'], fname)
-{% endhighlight %}
+```
 
 ### Increase size of pyplot legend
 
 Sometimes, the legend in matplotlib isn't quite big enough. Increase it with:
 
-{% highlight python lineanchors %}
+```python
 plt.legend(loc="upper left", shadow=True, borderpad=1)
-{% endhighlight %}
+```
 
 ### Fix spacing in pyplot multiplots
 
 Every time I do a subplot in pyplot, I get annoyed at the spacing, and every time I forget that all you need to do is put the following in your script and it will automagically sort the spacing out for you:
 
-{% highlight python lineanchors %}
+```python
 plt.tight_layout()
-{% endhighlight %}
+```
 
 Why is this not a standard part of matplotlib? I don't know.
 
@@ -250,31 +249,31 @@ Why is this not a standard part of matplotlib? I don't know.
 
 You can use either `np.arange` or specify the ticks yourself:
 
-{% highlight python lineanchors %}
+```python
 # Automatically generate ticks for x axis
 plt.xticks(np.arange(min(x), max(x)+1, step))
 
 # Manually specify ticks for y axis
 plt.yticks([-1, 5.2, 9.0, 43, 109])
-{% endhighlight %}
+```
 
 ### Set custom limits on pyplot plot
 
 Here you can both retrieve and set the x and y limits with `plt.xlim` and `plt.ylim`:
 
-{% highlight python lineanchors %}
+```python
 plt.xlim() # Returns the current x axis limits
 plt.ylim() # Returns the current y axis limits
 
 plt.xlim(0, 127) # Sets the x axis limits
 plt.ylim(159, 4) # Sets the y axis limits
-{% endhighlight %}
+```
 
 ### Find the properties of an object
 
 To find the properties of an object, you can do the following:
 
-{% highlight python lineanchors %}
+```python
 object.__dict__ # Works in some cases
 dir(object) # Should work in all cases
 
@@ -288,7 +287,7 @@ __builtins__.__dict__
 > {'bytearray': <type 'bytearray'>, 'IndexError': <type 'exceptions.IndexError'>,
 >   ...,
 >  'OverflowError': <type 'exceptions.OverFlowError'>}
-{% endhighlight %}
+```
 
 ## Perl
 
@@ -296,12 +295,12 @@ __builtins__.__dict__
 
 Probably the most useful thing that `perl` can do is `perl -pi -e`, often lovingly called Perl Pie. The syntax is:
 
-{% highlight bash lineanchors %}
+```shell
 perl -pi -e "s/string to find/string to replace/g" filenames
-{% endhighlight %}
+```
 
 This replaces `string to find` with `string to replace` in filenames. This is fully regex compatible. For instance, if I wanted to replace `mispelt` with `misspelt` in all files ending in `.txt`, I would run:
 
-{% highlight bash lineanchors %}
+```shell
 perl -pi -e "s/mispelt/misspelt/g" *.txt
-{% endhighlight %}
+```
