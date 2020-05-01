@@ -1,11 +1,11 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { Global, css } from '@emotion/core';
-import { lighten } from 'polished';
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Global, css } from "@emotion/core";
+import { lighten } from "polished";
 
 // @ts-ignore
-import favicon from '../../src/favicon.ico';
-import { colors } from '../styles/colors';
+import favicon from "../../src/favicon.ico";
+import { colors } from "../styles/colors";
 
 interface IndexProps {
   className?: string;
@@ -118,7 +118,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
           blockquote:after,
           q:before,
           q:after {
-            content: '';
+            content: "";
             content: none;
           }
           table {
@@ -210,9 +210,9 @@ const IndexLayout: React.FC<IndexProps> = props => {
             text-transform: none;
           }
           button,
-          html input[type='button'],
-          input[type='reset'],
-          input[type='submit'] {
+          html input[type="button"],
+          input[type="reset"],
+          input[type="submit"] {
             cursor: pointer;
 
             -webkit-appearance: button;
@@ -232,22 +232,22 @@ const IndexLayout: React.FC<IndexProps> = props => {
           input:focus {
             outline: none;
           }
-          input[type='checkbox'],
-          input[type='radio'] {
+          input[type="checkbox"],
+          input[type="radio"] {
             box-sizing: border-box;
             padding: 0;
           }
-          input[type='number']::-webkit-inner-spin-button,
-          input[type='number']::-webkit-outer-spin-button {
+          input[type="number"]::-webkit-inner-spin-button,
+          input[type="number"]::-webkit-outer-spin-button {
             height: auto;
           }
-          input[type='search'] {
+          input[type="search"] {
             box-sizing: content-box;
 
             -webkit-appearance: textfield;
           }
-          input[type='search']::-webkit-search-cancel-button,
-          input[type='search']::-webkit-search-decoration {
+          input[type="search"]::-webkit-search-cancel-button,
+          input[type="search"]::-webkit-search-decoration {
             -webkit-appearance: none;
           }
           legend {
@@ -275,9 +275,10 @@ const IndexLayout: React.FC<IndexProps> = props => {
           }
           body {
             overflow-x: hidden;
-            color: ${lighten('0.3', colors.midgrey)};
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-              Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: ${lighten("0.3", colors.midgrey)};
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+              sans-serif;
             font-size: 1.6rem;
             line-height: 1.6em;
             font-weight: 400;
@@ -288,12 +289,12 @@ const IndexLayout: React.FC<IndexProps> = props => {
 
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            -moz-font-feature-settings: 'liga' on;
+            -moz-font-feature-settings: "liga" on;
           }
 
           ::selection {
             text-shadow: none;
-            background: ${lighten('0.3', colors.blue)};
+            background: ${lighten("0.3", colors.blue)};
           }
 
           hr {
@@ -304,7 +305,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
             padding: 0;
             height: 1px;
             border: 0;
-            border-top: 1px solid ${lighten('0.1', colors.lightgrey)};
+            border-top: 1px solid ${lighten("0.1", colors.lightgrey)};
           }
 
           audio,
@@ -407,7 +408,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
           }
 
           a {
-            color: ${lighten('-0.05', colors.blue)};
+            color: ${lighten("-0.05", colors.blue)};
             text-decoration: none;
           }
 

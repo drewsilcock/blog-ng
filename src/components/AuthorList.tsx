@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
-import { Author } from '../templates/post';
-import { AuthorListItem } from './AuthorListItem';
+import { Author } from "../templates/post";
+import { AuthorListItem } from "./AuthorListItem";
 
 interface AuthorListProps {
-  tooltip: 'small' | 'large';
+  tooltip: "small" | "large";
   authors: Author[];
 }
 

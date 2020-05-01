@@ -1,18 +1,18 @@
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
-import * as _ from 'lodash';
-import { lighten } from 'polished';
-import React, { useState } from 'react';
+import { Link } from "gatsby";
+import Img from "gatsby-image";
+import * as _ from "lodash";
+import { lighten } from "polished";
+import React, { useState } from "react";
 
-import { css } from '@emotion/core';
+import { css } from "@emotion/core";
 
-import { colors } from '../styles/colors';
-import { Author } from '../templates/post';
-import { AuthorProfileImage } from './PostCard';
-import styled from '@emotion/styled';
+import { colors } from "../styles/colors";
+import { Author } from "../templates/post";
+import { AuthorProfileImage } from "./PostCard";
+import styled from "@emotion/styled";
 
 interface AuthorListItemProps {
-  tooltip: 'small' | 'large';
+  tooltip: "small" | "large";
   author: Author;
 }
 
@@ -20,7 +20,7 @@ export const AuthorListItem: React.FC<AuthorListItemProps> = props => {
   const [hovered, setHover] = useState(false);
   let timeout: NodeJS.Timeout;
   function handleMouseEnter() {
-    if (props.tooltip !== 'large') {
+    if (props.tooltip !== "large") {
       return;
     }
 
@@ -39,8 +39,10 @@ export const AuthorListItem: React.FC<AuthorListItemProps> = props => {
       onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => handleMouseLeave()}
     >
-      {props.tooltip === 'small' && (
-        <AuthorNameTooltip className="author-name-tooltip">{props.author.id}</AuthorNameTooltip>
+      {props.tooltip === "small" && (
+        <AuthorNameTooltip className="author-name-tooltip">
+          {props.author.id}
+        </AuthorNameTooltip>
       )}
       <div css={[AuthorCardStyles, hovered && Hovered]} className="author-card">
         {props.author.avatar.children.length && (
@@ -56,8 +58,10 @@ export const AuthorListItem: React.FC<AuthorListItemProps> = props => {
             <h2>{props.author.id}</h2>
             <p>{props.author.bio}</p>
             <p>
-              <Link to={`/author/${_.kebabCase(props.author.id)}/`}>More posts</Link> by{' '}
-              {props.author.id}.
+              <Link to={`/author/${_.kebabCase(props.author.id)}/`}>
+                More posts
+              </Link>{" "}
+              by {props.author.id}.
             </p>
           </div>
         </div>
@@ -110,7 +114,8 @@ const AuthorNameTooltip = styled.div`
   /* background: var(--darkgrey); */
   background: ${colors.darkgrey};
   border-radius: 3px;
-  box-shadow: rgba(39, 44, 49, 0.08) 0 12px 26px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
+  box-shadow: rgba(39, 44, 49, 0.08) 0 12px 26px,
+    rgba(39, 44, 49, 0.03) 1px 3px 8px;
   opacity: 0;
   transition: all 0.35s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   transform: translateY(6px);
@@ -134,7 +139,8 @@ const AuthorCardStyles = css`
   line-height: 1.5em;
   background: white;
   border-radius: 3px;
-  box-shadow: rgba(39, 44, 49, 0.08) 0 12px 26px, rgba(39, 44, 49, 0.06) 1px 3px 8px;
+  box-shadow: rgba(39, 44, 49, 0.08) 0 12px 26px,
+    rgba(39, 44, 49, 0.06) 1px 3px 8px;
   opacity: 0;
   transition: all 0.35s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   transform: scale(0.98) translateY(15px);
@@ -142,7 +148,7 @@ const AuthorCardStyles = css`
   padding: 20px 20px 22px;
 
   :before {
-    content: '';
+    content: "";
     position: absolute;
     top: 100%;
     left: 50%;
@@ -201,12 +207,12 @@ const AuthorCardStyles = css`
 
   @media (prefers-color-scheme: dark) {
     /* background: color(var(--darkmode) l(+4%)); */
-    background: ${lighten('0.04', colors.darkmode)};
+    background: ${lighten("0.04", colors.darkmode)};
     box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
 
     :before {
       /* border-top-color: color(var(--darkmode) l(+4%)); */
-      border-top-color: ${lighten('0.04', colors.darkmode)};
+      border-top-color: ${lighten("0.04", colors.darkmode)};
     }
   }
 `;
@@ -228,6 +234,6 @@ const AuthorAvatar = css`
 
   @media (prefers-color-scheme: dark) {
     /* border-color: color(var(--darkgrey) l(+2%)); */
-    border-color: ${lighten('0.02', colors.darkgrey)};
+    border-color: ${lighten("0.02", colors.darkgrey)};
   }
 `;

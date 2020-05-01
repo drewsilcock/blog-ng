@@ -1,13 +1,13 @@
-import { lighten } from 'polished';
-import React from 'react';
+import { lighten } from "polished";
+import React from "react";
 
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
-import { colors } from '../styles/colors';
-import { inner, outer } from '../styles/shared';
-import { PageContext } from '../templates/post';
-import { PostCard } from './PostCard';
-import { ReadNextCard } from './ReadNextCard';
+import { colors } from "../styles/colors";
+import { inner, outer } from "../styles/shared";
+import { PageContext } from "../templates/post";
+import { PostCard } from "./PostCard";
+import { ReadNextCard } from "./ReadNextCard";
 
 interface ReadNextProps {
   tags: string[];
@@ -39,7 +39,9 @@ export const ReadNext: React.FC<ReadNextProps> = props => {
     <ReadNextAside className="read-next" css={outer}>
       <div css={inner}>
         <ReadNextFeed className="read-next-feed">
-          {showRelatedPosts && <ReadNextCard tags={props.tags} relatedPosts={props.relatedPosts} />}
+          {showRelatedPosts && (
+            <ReadNextCard tags={props.tags} relatedPosts={props.relatedPosts} />
+          )}
 
           {props.pageContext.prev && <PostCard post={props.pageContext.prev} />}
           {props.pageContext.next && <PostCard post={props.pageContext.next} />}
@@ -52,7 +54,7 @@ export const ReadNext: React.FC<ReadNextProps> = props => {
 const ReadNextAside = styled.aside`
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   /* background: color(var(--darkgrey) l(-5%)); */
-  background: ${lighten('-0.05', colors.darkgrey)};
+  background: ${lighten("-0.05", colors.darkgrey)};
 
   .post-card {
     padding-bottom: 0;

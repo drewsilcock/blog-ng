@@ -1,10 +1,10 @@
-import { lighten } from 'polished';
-import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { lighten } from "polished";
+import React from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 
-import { colors } from '../../styles/colors';
-import { SubscribeForm } from './SubscribeForm';
+import { colors } from "../../styles/colors";
+import { SubscribeForm } from "./SubscribeForm";
 
 export interface SubscribeProps {
   title: string;
@@ -24,12 +24,12 @@ const SubscribeFormSection = styled.section`
   margin: 1.5em 0;
   padding: 6.5vw 7vw 8vw;
   /* border: color(var(--lightgrey) l(+10%)) 1px solid; */
-  border: ${lighten('0.1', colors.lightgrey)} 1px solid;
+  border: ${lighten("0.1", colors.lightgrey)} 1px solid;
   text-align: center;
   /* background: linear-gradient(color(var(--whitegrey) l(+6%)), color(var(--whitegrey) l(+4%))); */
   background: linear-gradient(
-    ${lighten('0.06', colors.whitegrey)},
-    ${lighten('0.04', colors.whitegrey)}
+    ${lighten("0.06", colors.whitegrey)},
+    ${lighten("0.04", colors.whitegrey)}
   );
   border-radius: 3px;
 
@@ -55,8 +55,8 @@ const SubscribeFormSection = styled.section`
     border: none;
     /* background: linear-gradient(color(var(--darkmode) l(-6%)), color(var(--darkmode) l(-3%))); */
     background: linear-gradient(
-      ${lighten('-0.06', colors.darkmode)},
-      ${lighten('-0.03', colors.darkmode)}
+      ${lighten("-0.06", colors.darkmode)},
+      ${lighten("-0.03", colors.darkmode)}
     );
 
     p {

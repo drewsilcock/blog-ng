@@ -1,9 +1,9 @@
-import { lighten } from 'polished';
+import { lighten } from "polished";
 
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 
-import { colors } from './colors';
+import { colors } from "./colors";
 
 export const outer = css`
   position: relative;
@@ -24,7 +24,7 @@ export const SiteNavMain = css`
   left: 0;
   z-index: 1000;
   /* background: color(var(--darkgrey) l(-5%)); */
-  background: ${lighten('-0.05', colors.darkgrey)};
+  background: ${lighten("-0.05", colors.darkgrey)};
 `;
 
 export const SiteMain = css`
@@ -121,7 +121,7 @@ export const SiteHeaderStyles = css`
   background-size: cover;
 
   :before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -132,7 +132,7 @@ export const SiteHeaderStyles = css`
     background: rgba(0, 0, 0, 0.18);
   }
   :after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -188,7 +188,7 @@ export const NoImage = css`
   .no-image .site-header-content {
     padding: 5vw 0 10px;
     /* border-bottom: 1px solid color(var(--lightgrey) l(+12%)); */
-    border-bottom: 1px solid ${lighten('0.12', colors.lightgrey)};
+    border-bottom: 1px solid ${lighten("0.12", colors.lightgrey)};
   }
 
   .no-image .author-bio {
@@ -230,7 +230,7 @@ export const NoImage = css`
   }
 
   .site-header-background:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -242,7 +242,7 @@ export const NoImage = css`
   }
 
   .site-header-background:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -284,7 +284,7 @@ export const NoImage = css`
 
     .no-image .site-header-content {
       /* border-bottom-color: color(var(--darkmode) l(+15%)); */
-      border-bottom-color: ${lighten('0.15', colors.darkmode)};
+      border-bottom-color: ${lighten("0.15", colors.darkmode)};
     }
 
     .no-image .author-social-link a {

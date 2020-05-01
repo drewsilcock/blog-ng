@@ -1,14 +1,14 @@
-import { graphql } from 'gatsby';
-import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { FluidObject } from 'gatsby-image';
+import { graphql } from "gatsby";
+import React from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
+import { FluidObject } from "gatsby-image";
 
-import { Footer } from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import { PostCard } from '../components/PostCard';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
+import { Footer } from "../components/Footer";
+import SiteNav from "../components/header/SiteNav";
+import { PostCard } from "../components/PostCard";
+import { Wrapper } from "../components/Wrapper";
+import IndexLayout from "../layouts";
 import {
   AuthorProfileImage,
   inner,
@@ -21,10 +21,10 @@ import {
   SiteArchiveHeader,
   NoImage,
   SiteNavMain,
-} from '../styles/shared';
-import { PageContext } from './post';
-import { Helmet } from 'react-helmet';
-import config from '../website-config';
+} from "../styles/shared";
+import { PageContext } from "./post";
+import { Helmet } from "react-helmet";
+import config from "../website-config";
 
 const HiddenMobile = css`
   @media (max-width: 500px) {
@@ -62,7 +62,7 @@ const AuthorMeta = css`
   .author-location + .author-stats:before,
   .author-stats + .author-social-link:before,
   .author-social-link + .author-social-link:before {
-    content: '•';
+    content: "•";
     display: inline-block;
     margin: 0 12px;
     color: #fff;
@@ -175,7 +175,9 @@ const Author: React.FC<AuthorTemplateProps> = props => {
   const author = props.data.authorYaml;
 
   const edges = props.data.allMarkdownRemark.edges.filter(edge => {
-    const isDraft = edge.node.frontmatter.draft !== true || process.env.NODE_ENV === 'development';
+    const isDraft =
+      edge.node.frontmatter.draft !== true ||
+      process.env.NODE_ENV === "development";
 
     let authorParticipated = false;
     if (edge.node.frontmatter.author) {
@@ -201,27 +203,42 @@ const Author: React.FC<AuthorTemplateProps> = props => {
         <meta property="og:site_name" content={config.title} />
         <meta property="og:type" content="profile" />
         <meta property="og:title" content={`${author.id} - ${config.title}`} />
-        <meta property="og:url" content={config.siteUrl + props.pathContext.slug} />
-        <meta property="article:publisher" content="https://www.facebook.com/ghost" />
-        <meta property="article:author" content="https://www.facebook.com/ghost" />
+        <meta
+          property="og:url"
+          content={config.siteUrl + props.pathContext.slug}
+        />
+        <meta
+          property="article:publisher"
+          content="https://www.facebook.com/ghost"
+        />
+        <meta
+          property="article:author"
+          content="https://www.facebook.com/ghost"
+        />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={`${author.id} - ${config.title}`} />
-        <meta name="twitter:url" content={config.siteUrl + props.pathContext.slug} />
+        <meta
+          name="twitter:url"
+          content={config.siteUrl + props.pathContext.slug}
+        />
         {config.twitter && (
           <meta
             name="twitter:site"
-            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
+            content={`@${config.twitter.split("https://twitter.com/")[1]}`}
           />
         )}
         {config.twitter && (
           <meta
             name="twitter:creator"
-            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
+            content={`@${config.twitter.split("https://twitter.com/")[1]}`}
           />
         )}
       </Helmet>
       <Wrapper css={NoImage}>
-        <header className="site-archive-header no-image" css={[SiteHeader, SiteArchiveHeader]}>
+        <header
+          className="site-archive-header no-image"
+          css={[SiteHeader, SiteArchiveHeader]}
+        >
           <div css={[outer, SiteNavMain]}>
             <div css={inner}>
               <SiteNav isHome={false} />
@@ -230,16 +247,21 @@ const Author: React.FC<AuthorTemplateProps> = props => {
 
           <div css={outer} className="site-header-background no-image">
             <div css={inner}>
-              <SiteHeaderContent css={AuthorHeader} className="site-header-content">
+              <SiteHeaderContent
+                css={AuthorHeader}
+                className="site-header-content"
+              >
                 <img
-                  style={{ marginTop: '8px' }}
+                  style={{ marginTop: "8px" }}
                   css={[AuthorProfileImage, AuthorProfileBioImage]}
                   src={props.data.authorYaml.avatar.childImageSharp.fluid.src}
                   alt={author.id}
                 />
                 <AuthHeaderContent className="author-header-content">
                   <SiteTitle className="site-title">{author.id}</SiteTitle>
-                  {author.bio && <AuthorBio className="author-bio">{author.bio}</AuthorBio>}
+                  {author.bio && (
+                    <AuthorBio className="author-bio">{author.bio}</AuthorBio>
+                  )}
                   <div css={AuthorMeta} className="author-meta">
                     {author.location && (
                       <div className="author-location" css={[HiddenMobile]}>
@@ -248,8 +270,8 @@ const Author: React.FC<AuthorTemplateProps> = props => {
                     )}
                     <div className="author-stats" css={[HiddenMobile]}>
                       {totalCount > 1 && `${totalCount} posts`}
-                      {totalCount === 1 && '1 post'}
-                      {totalCount === 0 && 'No posts'}
+                      {totalCount === 1 && "1 post"}
+                      {totalCount === 0 && "No posts"}
                     </div>
                     {author.website && (
                       <AuthorSocialLink className="author-social-link">

@@ -1,48 +1,49 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: 'Drew Silcock • stream! { consciousness }',
-    description: 'Personal site for technical musings, tips, tutorials & experiments.',
-    siteUrl: 'https://ng.drewsilcock.co.uk', // full path to blog - no ending slash
+    title: "Drew Silcock • stream! { consciousness }",
+    description:
+      "Personal site for technical musings, tips, tutorials & experiments.",
+    siteUrl: "https://ng.drewsilcock.co.uk", // full path to blog - no ending slash
   },
   mapping: {
-    'MarkdownRemark.frontmatter.author': 'AuthorYaml',
+    "MarkdownRemark.frontmatter.author": "AuthorYaml",
   },
   plugins: [
-    'gatsby-plugin-netlify-cms',
-    'gatsby-plugin-sitemap',
+    "gatsby-plugin-netlify-cms",
+    "gatsby-plugin-sitemap",
     {
-      resolve: 'gatsby-plugin-sharp',
+      resolve: "gatsby-plugin-sharp",
       options: {
         quality: 100,
         stripMetadata: true,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'blog',
-        path: path.join(__dirname, 'src', 'blog'),
+        name: "blog",
+        path: path.join(__dirname, "src", "blog"),
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-responsive-iframe',
+            resolve: "gatsby-remark-responsive-iframe",
             options: {
-              wrapperStyle: 'margin-bottom: 1rem',
+              wrapperStyle: "margin-bottom: 1rem",
             },
           },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-          'gatsby-remark-abbr',
+          "gatsby-remark-prismjs",
+          "gatsby-remark-copy-linked-files",
+          "gatsby-remark-smartypants",
+          "gatsby-remark-abbr",
           {
-            resolve: 'gatsby-remark-images',
+            resolve: "gatsby-remark-images",
             options: {
               maxWidth: 2000,
               quality: 100,
@@ -51,29 +52,32 @@ module.exports = {
         ],
       },
     },
-    'gatsby-transformer-json',
+    "gatsby-transformer-json",
     {
-      resolve: 'gatsby-plugin-canonical-urls',
+      resolve: "gatsby-plugin-canonical-urls",
       options: {
-        siteUrl: 'https://gatsby-casper.netlify.com',
+        siteUrl: "https://gatsby-casper.netlify.com",
       },
     },
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-typescript',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-yaml',
-    'gatsby-plugin-feed',
+    "gatsby-plugin-emotion",
+    "gatsby-plugin-typescript",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-transformer-yaml",
+    "gatsby-plugin-feed",
     {
-      resolve: 'gatsby-plugin-postcss',
+      resolve: "gatsby-plugin-postcss",
       options: {
-        postCssPlugins: [require('postcss-color-function'), require('cssnano')()],
+        postCssPlugins: [
+          require("postcss-color-function"),
+          require("cssnano")(),
+        ],
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: 'UA-XXXX-Y',
+        trackingId: "UA-XXXX-Y",
         // Puts tracking script in the head instead of the body
         head: true,
         // IP anonymization for GDPR compliance
@@ -81,7 +85,7 @@ module.exports = {
         // Disable analytics for users with `Do Not Track` enabled
         respectDNT: true,
         // Avoids sending pageview hits from custom paths
-        exclude: ['/preview/**'],
+        exclude: ["/preview/**"],
         // Specifies what percentage of users should be tracked
         sampleRate: 100,
         // Determines how often site speed tracking beacons will be sent

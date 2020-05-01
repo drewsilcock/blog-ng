@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-plus-operands, @typescript-eslint/no-var-requires */
-const path = require('path');
-const _ = require('lodash');
+const path = require("path");
+const _ = require("lodash");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -11,34 +11,34 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // trip up. An empty string is still required in replacement to `null`.
   // eslint-disable-next-line default-case
   switch (node.internal.type) {
-    case 'MarkdownRemark': {
+    case "MarkdownRemark": {
       const { permalink, layout, primaryTag } = node.frontmatter;
       const { relativePath } = getNode(node.parent);
 
       let slug = permalink;
 
       if (!slug) {
-        slug = `/${relativePath.replace('.md', '')}/`;
+        slug = `/${relativePath.replace(".md", "")}/`;
       }
 
       // Used to generate URL to view this content.
       createNodeField({
         node,
-        name: 'slug',
-        value: slug || '',
+        name: "slug",
+        value: slug || "",
       });
 
       // Used to determine a page layout.
       createNodeField({
         node,
-        name: 'layout',
-        value: layout || '',
+        name: "layout",
+        value: layout || "",
       });
 
       createNodeField({
         node,
-        name: 'primaryTag',
-        value: primaryTag || '',
+        name: "primaryTag",
+        value: primaryTag || "",
       });
     }
   }
@@ -125,8 +125,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? '/' : `/${i + 1}`,
-      component: path.resolve('./src/templates/index.tsx'),
+      path: i === 0 ? "/" : `/${i + 1}`,
+      component: path.resolve("./src/templates/index.tsx"),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
@@ -152,25 +152,25 @@ exports.createPages = async ({ graphql, actions }) => {
       // template.
       //
       // Note that the template has to exist first, or else the build will fail.
-      component: path.resolve(`./src/templates/${layout || 'post'}.tsx`),
+      component: path.resolve(`./src/templates/${layout || "post"}.tsx`),
       context: {
         // Data passed to context is available in page queries as GraphQL variables.
         slug,
         prev,
         next,
-        primaryTag: node.frontmatter.tags ? node.frontmatter.tags[0] : '',
+        primaryTag: node.frontmatter.tags ? node.frontmatter.tags[0] : "",
       },
     });
   });
 
   // Create tag pages
-  const tagTemplate = path.resolve('./src/templates/tags.tsx');
+  const tagTemplate = path.resolve("./src/templates/tags.tsx");
   const tags = _.uniq(
     _.flatten(
       result.data.allMarkdownRemark.edges.map(edge => {
-        return _.castArray(_.get(edge, 'node.frontmatter.tags', []));
-      }),
-    ),
+        return _.castArray(_.get(edge, "node.frontmatter.tags", []));
+      })
+    )
   );
   tags.forEach(tag => {
     createPage({
@@ -183,7 +183,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create author pages
-  const authorTemplate = path.resolve('./src/templates/author.tsx');
+  const authorTemplate = path.resolve("./src/templates/author.tsx");
   result.data.allAuthorYaml.edges.forEach(edge => {
     createPage({
       path: `/author/${_.kebabCase(edge.node.id)}/`,
@@ -197,9 +197,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   // adds sourcemaps for tsx in dev mode
-  if (stage === 'develop' || stage === 'develop-html') {
+  if (stage === "develop" || stage === "develop-html") {
     actions.setWebpackConfig({
-      devtool: 'eval-source-map',
+      devtool: "eval-source-map",
     });
   }
 };

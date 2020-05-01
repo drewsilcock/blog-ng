@@ -1,17 +1,17 @@
-import { Link } from 'gatsby';
-import { darken } from 'polished';
-import React from 'react';
+import { Link } from "gatsby";
+import { darken } from "polished";
+import React from "react";
 
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 
-import { colors } from '../../styles/colors';
-import { SocialLink, SocialLinkFb } from '../../styles/shared';
-import config from '../../website-config';
-import { Facebook } from '../icons/facebook';
-import { Twitter } from '../icons/twitter';
-import { SubscribeModal } from '../subscribe/SubscribeModal';
-import { SiteNavLogo } from './SiteNavLogo';
+import { colors } from "../../styles/colors";
+import { SocialLink, SocialLinkFb } from "../../styles/shared";
+import config from "../../website-config";
+import { Facebook } from "../icons/facebook";
+import { Twitter } from "../icons/twitter";
+import { SubscribeModal } from "../subscribe/SubscribeModal";
+import { SiteNavLogo } from "./SiteNavLogo";
 
 interface SiteNavProps {
   isHome?: boolean;
@@ -39,12 +39,12 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
   componentDidMount(): void {
     this.lastScrollY = window.scrollY;
     if (this.props.isPost) {
-      window.addEventListener('scroll', this.onScroll, { passive: true });
+      window.addEventListener("scroll", this.onScroll, { passive: true });
     }
   }
 
   componentWillUnmount(): void {
-    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener("scroll", this.onScroll);
   }
 
   onScroll = () => {
@@ -85,7 +85,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
       <nav css={SiteNavStyles}>
         <SiteNavLeft>
           {!isHome && <SiteNavLogo />}
-          <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
+          <SiteNavContent css={[this.state.showTitle ? HideNav : ""]}>
             <ul css={NavStyles} role="menu">
               {/* TODO: mark current nav item - add class nav-current */}
               <li role="menuitem">
@@ -132,7 +132,9 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
             )}
           </SocialLinks>
           {config.showSubscribe && (
-            <SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>
+            <SubscribeButton onClick={this.openModal}>
+              Subscribe
+            </SubscribeButton>
           )}
           {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
         </SiteNavRight>
@@ -148,7 +150,7 @@ export const SiteNavMain = css`
   left: 0;
   z-index: 1000;
   /* background: color(var(--darkgrey) l(-5%)) */
-  background: ${darken('0.05', colors.darkgrey)};
+  background: ${darken("0.05", colors.darkgrey)};
 
   @media (max-width: 700px) {
     padding-right: 0;
@@ -224,7 +226,7 @@ const NavStyles = css`
   }
 
   li a:before {
-    content: '';
+    content: "";
     position: absolute;
     right: 100%;
     bottom: 8px;
@@ -294,7 +296,7 @@ const NavPostTitle = styled.span`
   }
 
   .dash:before {
-    content: '– ';
+    content: "– ";
     opacity: 0.5;
   }
 `;

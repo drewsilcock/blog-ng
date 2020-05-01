@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
-import { colors } from '../../styles/colors';
-import config from '../../website-config';
-import { SubscribeForm } from './SubscribeForm';
-import SubscribeLogo from './SubscribeLogo';
+import { colors } from "../../styles/colors";
+import config from "../../website-config";
+import { SubscribeForm } from "./SubscribeForm";
+import SubscribeLogo from "./SubscribeLogo";
 
 interface SubscribeState {
   isOpen: boolean;
@@ -18,17 +18,17 @@ export class SubscribeModal extends React.Component<any, SubscribeState> {
   }
 
   escFunction = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
+    if (event.key === "Escape") {
       this.close();
     }
   };
 
   subscribeEsc() {
-    document.addEventListener('keydown', this.escFunction, false);
+    document.addEventListener("keydown", this.escFunction, false);
   }
 
   unsubscribeEsc() {
-    document.removeEventListener('keydown', this.escFunction, false);
+    document.removeEventListener("keydown", this.escFunction, false);
   }
 
   open = () => {
@@ -47,10 +47,12 @@ export class SubscribeModal extends React.Component<any, SubscribeState> {
         <SubscribeOverlayClose onClick={this.close} />
         <SubscribeOverlayContent>
           <SubscribeLogo />
-          <SubscribeOverlayTitle>Subscribe to {config.title}</SubscribeOverlayTitle>
+          <SubscribeOverlayTitle>
+            Subscribe to {config.title}
+          </SubscribeOverlayTitle>
           <SubscribeOverlayDescription>
-            Stay up to date! Get all the latest &amp; greatest posts delivered straight to your
-            inbox
+            Stay up to date! Get all the latest &amp; greatest posts delivered
+            straight to your inbox
           </SubscribeOverlayDescription>
           <SubscribeForm />
         </SubscribeOverlayContent>
@@ -78,7 +80,8 @@ const SubscribeOverlay = styled.div<SubscribeOverlayProps>`
   opacity: ${(props: SubscribeOverlayProps) => (props.open ? 1 : 0)};
   transition: opacity 0.2s ease-in;
   /* pointer-events: none; */
-  pointer-events: ${(props: SubscribeOverlayProps) => (props.open ? 'auto' : 'none')};
+  pointer-events: ${(props: SubscribeOverlayProps) =>
+    props.open ? "auto" : "none"};
 
   button {
     display: inline-block;

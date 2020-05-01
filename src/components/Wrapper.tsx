@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
 interface WrapperProps {
   className?: string;
@@ -14,4 +14,3 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   min-height: 100vh;
 `;
-

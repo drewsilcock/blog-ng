@@ -1,19 +1,19 @@
-import { Link } from 'gatsby';
-import { setLightness } from 'polished';
-import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { Link } from "gatsby";
+import { setLightness } from "polished";
+import React from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 
-import { colors } from '../styles/colors';
-import { outer, inner } from '../styles/shared';
-import config from '../website-config';
+import { colors } from "../styles/colors";
+import { outer, inner } from "../styles/shared";
+import config from "../website-config";
 
 export const Footer: React.FC = () => {
   return (
     <footer css={[outer, SiteFooter]}>
       <div css={[inner, SiteFooterContent]}>
         <section className="copyright">
-          <Link to="/">{config.title}</Link> &copy; {new Date().getFullYear()}{' '}
+          <Link to="/">{config.title}</Link> &copy; {new Date().getFullYear()}{" "}
           {config.footer && (
             <Link to="/">
               | {config.title} {config.footer}
@@ -49,7 +49,7 @@ const SiteFooter = css`
   padding-top: 20px;
   padding-bottom: 60px;
   color: #fff;
-  background: ${setLightness('0.0015', colors.darkgrey)};
+  background: ${setLightness("0.0015", colors.darkgrey)};
 `;
 
 const SiteFooterContent = css`
@@ -80,7 +80,7 @@ const SiteFooterNav = styled.nav`
   }
 
   a:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 11px;
     left: -11px;
@@ -100,4 +100,3 @@ const SiteFooterNav = styled.nav`
     }
   }
 `;
-

@@ -1,16 +1,22 @@
-import { graphql, Link } from 'gatsby';
-import React from 'react';
+import { graphql, Link } from "gatsby";
+import React from "react";
 
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 
-import SiteNav from '../components/header/SiteNav';
-import { PostCard } from '../components/PostCard';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
-import { colors } from '../styles/colors';
-import { inner, outer, PostFeed, SiteHeader, SiteNavMain } from '../styles/shared';
-import { PageContext } from '../templates/post';
+import SiteNav from "../components/header/SiteNav";
+import { PostCard } from "../components/PostCard";
+import { Wrapper } from "../components/Wrapper";
+import IndexLayout from "../layouts";
+import { colors } from "../styles/colors";
+import {
+  inner,
+  outer,
+  PostFeed,
+  SiteHeader,
+  SiteNavMain,
+} from "../styles/shared";
+import { PageContext } from "../templates/post";
 
 interface NotFoundTemplateProps {
   data: {
@@ -36,9 +42,13 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
             </div>
           </div>
         </header>
-        <main id="site-main" css={[outer, ErrorContent]} className="error-content">
+        <main
+          id="site-main"
+          css={[outer, ErrorContent]}
+          className="error-content"
+        >
           <div css={[inner]}>
-            <section style={{ textAlign: 'center' }}>
+            <section style={{ textAlign: "center" }}>
               <ErrorCode>404</ErrorCode>
               <ErrorDescription>Page not found</ErrorDescription>
               <Link css={ErrorLink} to="">
@@ -60,7 +70,10 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      limit: 3
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           timeToRead

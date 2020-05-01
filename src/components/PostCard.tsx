@@ -1,16 +1,16 @@
-import { format } from 'date-fns';
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
-import _ from 'lodash';
-import { lighten } from 'polished';
-import React from 'react';
+import { format } from "date-fns";
+import { Link } from "gatsby";
+import Img from "gatsby-image";
+import _ from "lodash";
+import { lighten } from "polished";
+import React from "react";
 
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 
-import { colors } from '../styles/colors';
-import { PageContext } from '../templates/post';
-import { AuthorList } from './AuthorList';
+import { colors } from "../styles/colors";
+import { PageContext } from "../templates/post";
+import { AuthorList } from "./AuthorList";
 
 export interface PostCardProps {
   post: PageContext;
@@ -20,24 +20,28 @@ export interface PostCardProps {
 export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
   const date = new Date(post.frontmatter.date);
   // 2018-08-20
-  const datetime = format(date, 'yyyy-MM-dd');
+  const datetime = format(date, "yyyy-MM-dd");
   // 20 AUG 2018
-  const displayDatetime = format(date, 'dd LLL yyyy');
+  const displayDatetime = format(date, "dd LLL yyyy");
 
   return (
     <article
-      className={`post-card ${post.frontmatter.image ? '' : 'no-image'} ${
-        large ? 'post-card-large' : ''
+      className={`post-card ${post.frontmatter.image ? "" : "no-image"} ${
+        large ? "post-card-large" : ""
       }`}
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {post.frontmatter.image && (
-        <Link className="post-card-image-link" css={PostCardImageLink} to={post.fields.slug}>
+        <Link
+          className="post-card-image-link"
+          css={PostCardImageLink}
+          to={post.fields.slug}
+        >
           <PostCardImage className="post-card-image">
             {post.frontmatter?.image?.childImageSharp?.fluid && (
               <Img
                 alt={`${post.frontmatter.title} cover image`}
-                style={{ height: '100%' }}
+                style={{ height: "100%" }}
                 fluid={post.frontmatter.image.childImageSharp.fluid}
               />
             )}
@@ -45,14 +49,20 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
         </Link>
       )}
       <PostCardContent className="post-card-content">
-        <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
+        <Link
+          className="post-card-content-link"
+          css={PostCardContentLink}
+          to={post.fields.slug}
+        >
           <PostCardHeader className="post-card-header">
             {post.frontmatter.tags && (
               <PostCardPrimaryTag className="post-card-primary-tag">
                 {post.frontmatter.tags[0]}
               </PostCardPrimaryTag>
             )}
-            <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
+            <PostCardTitle className="post-card-title">
+              {post.frontmatter.title}
+            </PostCardTitle>
           </PostCardHeader>
           <PostCardExcerpt className="post-card-excerpt">
             <p>{post.frontmatter.excerpt || post.excerpt}</p>
@@ -65,14 +75,16 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
               {post.frontmatter.author.map((author, index) => {
                 return (
                   <React.Fragment key={author.id}>
-                    <Link to={`/author/${_.kebabCase(author.id)}/`}>{author.id}</Link>
-                    {post.frontmatter.author.length - 1 > index && ', '}
+                    <Link to={`/author/${_.kebabCase(author.id)}/`}>
+                      {author.id}
+                    </Link>
+                    {post.frontmatter.author.length - 1 > index && ", "}
                   </React.Fragment>
                 );
               })}
             </span>
             <span className="post-card-byline-date">
-              <time dateTime={datetime}>{displayDatetime}</time>{' '}
+              <time dateTime={datetime}>{displayDatetime}</time>{" "}
               <span className="bull">&bull;</span> {post.timeToRead} min read
             </span>
           </PostCardBylineContent>
@@ -92,12 +104,12 @@ const PostCardStyles = css`
   padding: 0 20px 40px;
   min-height: 220px;
   /* border-bottom: 1px solid color(var(--lightgrey) l(+12%)); */
-  border-bottom: 1px solid ${lighten('0.12', colors.lightgrey)};
+  border-bottom: 1px solid ${lighten("0.12", colors.lightgrey)};
   background-size: cover;
 
   @media (prefers-color-scheme: dark) {
     /* border-bottom-color: color(var(--darkmode) l(+8%)); */
-    border-bottom-color: ${lighten('0.08', colors.darkmode)};
+    border-bottom-color: ${lighten("0.08", colors.darkmode)};
   }
 `;
 
@@ -208,7 +220,7 @@ const PostCardExcerpt = styled.section`
 
   @media (prefers-color-scheme: dark) {
     /* color: color(var(--midgrey) l(+10%)); */
-    color: ${lighten('0.1', colors.midgrey)} !important;
+    color: ${lighten("0.1", colors.midgrey)} !important;
   }
 `;
 
@@ -224,7 +236,7 @@ const PostCardBylineContent = styled.div`
   flex-direction: column;
   margin: 2px 0 0 6px;
   /* color: color(var(--midgrey) l(+10%)); */
-  color: ${lighten('0.1', colors.midgrey)};
+  color: ${lighten("0.1", colors.midgrey)};
   font-size: 1.2rem;
   line-height: 1.4em;
   font-weight: 400;
@@ -237,7 +249,7 @@ const PostCardBylineContent = styled.div`
 
   a {
     /* color: color(var(--darkgrey) l(+20%)); */
-    color: ${lighten('0.2', colors.darkgrey)};
+    color: ${lighten("0.2", colors.darkgrey)};
     font-weight: 600;
   }
 
@@ -263,7 +275,7 @@ export const StaticAvatar = css`
 
   @media (prefers-color-scheme: dark) {
     /* border-color: color(var(--darkgrey) l(+2%)); */
-    border-color: ${lighten('0.02', colors.darkgrey)};
+    border-color: ${lighten("0.02", colors.darkgrey)};
   }
 `;
 
@@ -272,7 +284,7 @@ export const AuthorProfileImage = css`
   width: 100%;
   height: 100%;
   /* background: color(var(--lightgrey) l(+10%)); */
-  background: ${lighten('0.1', colors.lightgrey)};
+  background: ${lighten("0.1", colors.lightgrey)};
   border-radius: 100%;
   object-fit: cover;
 

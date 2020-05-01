@@ -1,16 +1,16 @@
-import { graphql } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import { graphql } from "gatsby";
+import { FixedObject } from "gatsby-image";
+import React from "react";
+import { Helmet } from "react-helmet";
 
-import { css } from '@emotion/core';
+import { css } from "@emotion/core";
 
-import { Footer } from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import Pagination from '../components/Pagination';
-import { PostCard } from '../components/PostCard';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
+import { Footer } from "../components/Footer";
+import SiteNav from "../components/header/SiteNav";
+import Pagination from "../components/Pagination";
+import { PostCard } from "../components/PostCard";
+import { Wrapper } from "../components/Wrapper";
+import IndexLayout from "../layouts";
 import {
   inner,
   outer,
@@ -21,9 +21,9 @@ import {
   SiteHeaderContent,
   SiteMain,
   SiteTitle,
-} from '../styles/shared';
-import config from '../website-config';
-import { PageContext } from './post';
+} from "../styles/shared";
+import config from "../website-config";
+import { PageContext } from "./post";
 
 export interface IndexProps {
   pageContext: {
@@ -67,9 +67,14 @@ const IndexPage: React.FC<IndexProps> = props => {
           property="og:image"
           content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`}
         />
-        {config.facebook && <meta property="article:publisher" content={config.facebook} />}
+        {config.facebook && (
+          <meta property="article:publisher" content={config.facebook} />
+        )}
         {config.googleSiteVerification && (
-          <meta name="google-site-verification" content={config.googleSiteVerification} />
+          <meta
+            name="google-site-verification"
+            content={config.googleSiteVerification}
+          />
         )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={config.title} />
@@ -82,7 +87,7 @@ const IndexPage: React.FC<IndexProps> = props => {
         {config.twitter && (
           <meta
             name="twitter:site"
-            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
+            content={`@${config.twitter.split("https://twitter.com/")[1]}`}
           />
         )}
         <meta property="og:image:width" content={width.toString()} />
@@ -101,7 +106,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               <SiteTitle>
                 {props.data.logo ? (
                   <img
-                    style={{ maxHeight: '55px' }}
+                    style={{ maxHeight: "55px" }}
                     src={props.data.logo.childImageSharp.fixed.src}
                     alt={config.title}
                   />
@@ -120,8 +125,12 @@ const IndexPage: React.FC<IndexProps> = props => {
                 // filter out drafts in production
                 return (
                   (post.node.frontmatter.draft !== true ||
-                    process.env.NODE_ENV !== 'production') && (
-                    <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
+                    process.env.NODE_ENV !== "production") && (
+                    <PostCard
+                      key={post.node.fields.slug}
+                      post={post.node}
+                      large={index === 0}
+                    />
                   )
                 );
               })}
