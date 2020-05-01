@@ -42,9 +42,9 @@ The truth is that UTF-16 essentially uses two separate code points to represent 
 
 Each astral code point is represented in UTF-16 as one Low Surrogate and one High Surrogate by the following equation:
 
-{% highlight js lineanchors %}
+```js
 0x1000016 + (high_surrogate − 0xd80016) × 0x40016 + (low_surrogate − 0xdc0016)
-{% endhighlight %}
+```
 
 What this means is that, in JavaScript, the cucumber character `0x1f952` is represented as *two separate codepoints*: `55358` or `0xd83e` (the high surrogate) and `56658` or `0xdd52` (the low surrogate).
 
@@ -52,15 +52,15 @@ What this means is that, in JavaScript, the cucumber character `0x1f952` is repr
 
 The astute reader may wonder what these surrogate pair representations of single characters means for the indexing of strings in JavaScript. When you have a string like `var s = "hello there"`, you expect `s[0]` to give you the first character, `s[3]` to give you the fourth character and `s[7]` to give you the eight character. But what about the following code:
 
-{% highlight js lineanchors %}
+```js
 var cucumber = "🥒";
 console.log(cucumber.length);
 // -> 2
-{% endhighlight %}
+```
 
 So, even though it contains only a single character, JavaScript thinks that the cucumber string has a length of 2! We can delve a bit further:
 
-{% highlight js lineanchors %}
+```js
 var highSurrogate = cucumber[0];
 var lowSurrogate = cucumber[1];
 
@@ -68,7 +68,7 @@ console.log(highSurrogate, highSurrogate.codePointAt());
 // -> � 55358
 console.log(lowSurrogate, lowSurrogate.codePointAt());
 // -> � 56658
-{% endhighlight %}
+```
 
 What this shows is that string indexing works by assuming that all characters are within the BMP, and so are exactly 16 bits long. So the indexing picks out not the entire cucumber character, but only one of its two surrogate pairs!
 
@@ -109,13 +109,13 @@ Check [this link](https://unicodebook.readthedocs.io/programming_languages.html)
 
 While languages like Go embrace UTF-8 but maintain indexing into bytes as the default, Rust goes even further in enforcing a UTF-8 treatment of all strings. So what happens when you try to index strings in Rust?
 
-{% highlight rust lineanchors %}
+```rust
   |
 5 |     println!("Normal[5]: '{}'", normal_string[5]);
   |                                 ^^^^^^^^^^^^^^^^ `std::string::String` cannot be indexed by `{integer}`
   |
   = help: the trait `std::ops::Index<{integer}>` is not implemented for `std::string::String`
-{% endhighlight %}
+```
 [(Try it out)](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=25af3779c35a7dfc4a147e943015c9f3)
 
 In fact, Rust prevent indexing into strings using the normal `[idx]` syntax *entirely* on the basis that
@@ -128,7 +128,7 @@ Instead, Rust forces you to choose which to index into by providing two iterator
 - `my_string.bytes()` for iterating over raw bytes - each item is given as a `u8`.
 - `my_string.chars()` for iterating over code points (technically it is for iterating over [Unicode Scalar Values](http://www.unicode.org/glossary/#unicode_scalar_value) which is basically a Unicode code point excluding the low and high surrogates discussed earlier) - each item is given as a `char`, which is a 32-bit long representation of a single codepoint.
 
-{% highlight rust lineanchors %}
+```rust
 fn main() {
     let normal_string = String::from("UTF-8! 🥒");
 
@@ -173,7 +173,7 @@ fn main() {
 // byte at index 8: 159 ()
 // byte at index 9: 165 (¥)
 // byte at index 10: 146 ()
-{% endhighlight %}
+```
 [(Try it out)](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=ac4dfbe2ebd3788954a7cce5e278ca5e)
 
 You might notice that Rust doesn't provide a standard library way of iterating through grapheme clusters, although there are [crates that do exactly this](https://crates.io/crates/unicode-segmentation). This might give you an idea of just how complicated this Unicode malarkey can get if you keep digging.
@@ -222,7 +222,7 @@ As you can see, they've still got a lot of possible codepoints to choose from!
 
 In fact, the last symbol in that array - ✌️ - also known as "victory hand", is within the BMP. So why does it appear as an emoji with length 2? Why, that's an excellent question. To see what's going on here, let's break down how JavaScript sees the character:
 
-{% highlight js lineanchors %}
+```js
 const victory_hand = "✌️";
 
 let i = 0;
@@ -234,7 +234,7 @@ for (const c of victory_hand) {
 // Returns:
 // 0: ✌ U+270c
 // 1: ️ U+fe0f
-{% endhighlight %}
+```
 
 The first character is the victory hand symbol U+270c (i.e. Unicode codepoint 0x270c) that we were expecting, but what is this second codepoint, the U+fe0f?
 

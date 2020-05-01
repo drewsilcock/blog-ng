@@ -59,12 +59,12 @@ Then the MMP is given by:
 
 The camera resolution should be displayed on the camera specifications, or in the camera settings dialogue. If you don't have access to this information, it can also be read directly from the EXIF metadata using [`exiftool`](http://www.sno.phy.queensu.ca/~phil/exiftool/):
 
-{% highlight bash lineanchors %}
+```shell
 > exiftool photo.jpg
 ...
 Image Size: 4608x3456 # This is the camera resolution
 ...
-{% endhighlight %}
+```
 
 ## Finding angle of view
 

@@ -28,14 +28,14 @@ Master contains compiled HTML, source contains the Jekyll source.
 
 In the `.gitignore` of the `source` branch, you put the following:
 
-{% highlight bash lineanchors %}
+```shell
 _site
-{% endhighlight %}
+```
 
 Then, when you run `jekyll build` and Jekyll produces all the HTML in `_site`, git doesn't recognise it. That means that we can `cd` into `_site`, and seeing as git doesn't know the difference, we can make `_site` itself into its own git repository.
 
 Assuming you're starting off with a bog standard single branch Pages repo, you run:
-{% highlight bash lineanchors %}
+```shell
 # Make sure _site is empty before we begin
 rm -rf _site/*
 
@@ -66,27 +66,27 @@ git remote add origin https://github.com/username/username.github.io
 
 # Tell it to push to the master remote branch
 git branch --set-upstream master origin/master
-{% endhighlight %}
+```
 
 Now you've got your source branch set up in your root directory and master branch set up in your `_site` directory, ready for rapid building and deployment of your Jekyll website.
 
 Now each time you want to build your site locally, you just need to run:
-{% highlight bash lineanchors %}
+```shell
 jekyll build
 cd _site
 git add .
 git commit
 git push origin master
-{% endhighlight %}
+```
 and you have successfully built and deployed your website with Jekyll. Note that by default Jekyll does not copy `.nojekyll` over to `_site` where we need it, because it is a dotfile, so you need to put the following in your `_config.yml`:
 
-{% highlight yaml lineanchors %}
+```yaml
 include: .nojekyll
-{% endhighlight %}
+```
 
 Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the [gist of it](https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4), and this is the script:
 
-{% highlight bash lineanchors %}
+```shell
 #!/bin/bash
  
 if [[ -z "$1" ]]; then
@@ -101,10 +101,10 @@ jekyll build && \
   git push origin master && \
   cd .. && \
   echo "Successfully built and pushed to GitHub."
-{% endhighlight %}
+```
 
 So if I wanted to build my site locally and push it to my repository with the commit message "Latest build", I would run:
 
-{% highlight bash lineanchors %}
+```shell
 jekgit.sh "Latest build"
-{% endhighlight %}
+```

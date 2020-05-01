@@ -34,7 +34,7 @@ So let's get rid of the `lineno` option altogether, and get our beautiful but fu
 
 Alex's CSS is as follows:
 
-{% highlight c lineanchorsss lineanchors %}
+```c
 pre {
     counter-reset: line-numbering;
     border: solid 1px #d9d9d9;
@@ -81,7 +81,7 @@ pre a:last-of-type::before {
 pre a:only-of-type::before {
   padding: 10px;
 }
-{% endhighlight %}
+```
 
 Here's what it produces after adding it to your `syntax.css`:
 
@@ -89,14 +89,14 @@ Here's what it produces after adding it to your `syntax.css`:
 
 Note those important lines at the end of `pre a::before`:
 
-{% highlight c lineanchorsss lineanchors %}
+```c
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-{% endhighlight %}
+```
 
 This tell the browser to ignore the line numbers when copying, solving one of our initial problems.
 
@@ -114,9 +114,9 @@ To solve this, you can either just put `lineanchors` in every `highlight` Liquid
 
 Using this plugin, you can simply specify as follows in your `_config.yml`:
 
-{% highlight yaml lineanchors %}
+```yaml
 pygments_options: ['lineanchors']
-{% endhighlight %}
+```
 
 Then you don't need to put it in each codeblock tag and can forget about it!
 
@@ -130,10 +130,10 @@ Another problem I had, although I am unsure whether this problem is universal/re
 
 Now, I haven't come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex's code to get rid of it:
 
-{% highlight c lineanchorsss lineanchors %}
+```c
 /* In pre { .. } */
 overflow-y: hidden;
-{% endhighlight %}
+```
 
 This is placed in `pre { .. }`, just after `overflow-x: auto;`.
 
@@ -145,7 +145,7 @@ Dana's global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 re
 
 I always forget to do this, and could not be bothered to go through each codeblock in each blog post I've written, so here's a simple bash script to replace all instances of the `highlight lang` Liquid tag with its `lineanchors` equivalent:
 
-{% highlight bash lineanchors %}
+```shell
 #!/bin/bash
 
 # Adds lineanchors option to all codeblock Liquid tags
@@ -158,7 +158,7 @@ do
     :
     perl -pi -e "s/highlight $lang/highlight $lang lineanchors/g" $posts
 done
-{% endhighlight %}
+```
 
 Change `$posts` to correspond to the location of your blog posts, the contents of which you wish to replace. If you're using more lexers, just add them into the languages array.
 

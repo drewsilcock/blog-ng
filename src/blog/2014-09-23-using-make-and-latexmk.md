@@ -20,9 +20,9 @@ For the purposes of this article, I assume that you're using `pdflatex`, but all
 
 The basic syntax of `latexmk` is as follows:
 
-{% highlight bash lineacnhors %}
+```shell
 $ latexmk $OPTIONS -pdflatex="$COMPILATION_COMMAND $PDFLATEX_OPTIONS %O %S" yourtexfile.tex
-{% endhighlight %}
+```
 
 Note that `%O` is replaced by `latexmk` with the options given to `latexmk`, and `%S` is replaced with the source file name, in this example `yourtexfile.tex`. Some useful options to give to `latexmk` include `-pdf`, which tells `latexmk` that your final produced document is a `pdf`, and `-pvc`, which will be discussed shortly. `latexmk` also summarises the errors and warnings incurred throughout the compilation, which is very useful considering they're usually lost in a sea of output during normal `pdflatex` compilation.
 
@@ -36,7 +36,7 @@ Finally, we can wrap all this in a `Makefile` so we don't have to type the long 
 
 Here's a basic template for using `make` to simply this whole thing:
 
-{% highlight makefile lineanchors %}
+```makefile
 LATEX=pdflatex
 LATEXOPT=--shell-escape
 NONSTOP=--interaction=nonstopmode
@@ -77,7 +77,7 @@ debug:
         $(LATEX) $(LATEXOPT) $(MAIN)
 
 .PHONY: clean force once all
-{% endhighlight %}
+```
 
 If you don't like `latexmk` running continuously, and want to run make manually, or use something like `watch -n 1 make` to update your document, then just get rid of the `-pvc` option in `LATEXMKOPT`. Otherwise, if you only need to compile the document once and don't need to run `latexmk` continuously for recompilation, just run `make once`.
 
