@@ -21,6 +21,7 @@ import {
   SiteHeaderContent,
   SiteMain,
   SiteTitle,
+  SiteHeaderStyles,
 } from "../styles/shared";
 import config from "../website-config";
 import { PageContext } from "./post";
@@ -94,16 +95,17 @@ const IndexPage: React.FC<IndexProps> = props => {
         <meta property="og:image:height" content={height.toString()} />
       </Helmet>
       <Wrapper>
-        <header
-          css={[outer, SiteHeader]}
+        <div
+          css={[outer, SiteHeader, SiteHeaderStyles]}
+          className="site-header-background"
           style={{
             backgroundImage: `url('${props.data.header.childImageSharp.fixed.src}')`,
           }}
         >
           <div css={inner}>
             <SiteNav isHome />
-            <SiteHeaderContent>
-              <SiteTitle>
+            <SiteHeaderContent className="site-header-conent">
+              <SiteTitle className="site-title">
                 {props.data.logo ? (
                   <img
                     style={{ maxHeight: "55px" }}
@@ -117,7 +119,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               <SiteDescription>{config.description}</SiteDescription>
             </SiteHeaderContent>
           </div>
-        </header>
+        </div>
         <main id="site-main" css={[SiteMain, outer]}>
           <div css={[inner, Posts]}>
             <div css={[PostFeed]}>
