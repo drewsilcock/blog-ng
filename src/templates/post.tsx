@@ -21,6 +21,8 @@ import { inner, outer, SiteMain } from "../styles/shared";
 import config from "../website-config";
 import { AuthorList } from "../components/AuthorList";
 
+import "katex/dist/katex.min.css";
+
 export interface Author {
   id: string;
   bio: string;

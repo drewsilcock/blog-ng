@@ -49,6 +49,12 @@ module.exports = {
               quality: 100,
             },
           },
+          {
+            resolve: "gatsby-remark-katex",
+            options: {
+              strict: "error",
+            },
+          }
         ],
       },
     },
