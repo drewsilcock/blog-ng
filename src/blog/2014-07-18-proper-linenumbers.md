@@ -34,7 +34,7 @@ So let's get rid of the `lineno` option altogether, and get our beautiful but fu
 
 Alex's CSS is as follows:
 
-```c
+```css
 pre {
     counter-reset: line-numbering;
     border: solid 1px #d9d9d9;
@@ -89,7 +89,7 @@ Here's what it produces after adding it to your `syntax.css`:
 
 Note those important lines at the end of `pre a::before`:
 
-```c
+```css
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -130,7 +130,7 @@ Another problem I had, although I am unsure whether this problem is universal/re
 
 Now, I haven't come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex's code to get rid of it:
 
-```c
+```css
 /* In pre { .. } */
 overflow-y: hidden;
 ```
