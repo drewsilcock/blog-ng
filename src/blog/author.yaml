@@ -5,11 +5,11 @@
   facebook: ghost
   website: https://ghost.org/
   location: San Francisco
-- id: Another Author
+
+- id: Drew Silcock
   avatar: avatars/ghost.png
-  bio: This is another test author with a profile background image
-  twitter: TryGhost
-  facebook: ghost
-  website: https://ghost.org/
-  location: San Francisco
+  bio: Drew is the author of this site, hence the name.
+  twitter: drewlhsilcock
+  website: https://drewsilcock.co.uk/
+  location: United Kingdom
   profile_image: img/alex-knight-326705-unsplash.jpg

@@ -7,9 +7,10 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "dev": "netlify develop",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
+    "format": "prettier --write \"{gatsby-*.js,src/**/*.{js,ts,jsx,tsx,html,css}}\"",
     "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,6 +31,7 @@
     "gatsby-plugin-feed": "2.4.4",
     "gatsby-plugin-global-styles": "^1.0.17",
     "gatsby-plugin-google-analytics": "2.2.5",
+    "gatsby-plugin-netlify-cms": "^4.3.0",
     "gatsby-plugin-postcss": "2.2.4",
     "gatsby-plugin-react-helmet": "3.2.5",
     "gatsby-plugin-sharp": "2.5.7",
@@ -47,6 +49,7 @@
     "gatsby-transformer-sharp": "2.4.7",
     "gatsby-transformer-yaml": "2.3.4",
     "lodash": "4.17.15",
+    "netlify-cms-app": "^2.12.11",
     "normalize.css": "8.0.1",
     "polished": "3.5.2",
     "postcss-color-function": "4.1.0",
@@ -74,6 +77,8 @@
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "3.0.0",
+    "netlify": "^4.1.1",
+    "prettier": "^2.0.5",
     "typescript": "3.8.3"
   },
   "browserslist": [
