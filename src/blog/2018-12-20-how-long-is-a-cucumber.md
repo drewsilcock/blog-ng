@@ -1,7 +1,7 @@
 ---
 draft: false
-excerpt: "*Or: UTF-16 handling of astral planes and implications for JavaScript
-  string indexing*"
+excerpt: "Or: UTF-16 handling of astral planes and implications for JavaScript
+  string indexing"
 layout: post
 author:
   - Drew Silcock
@@ -9,7 +9,7 @@ title: How long is a cucumber? 🥒
 date: 2014-07-05T12:00:00Z
 description: "Or: UTF-16 handling of astral planes and implications for
   JavaScript string indexing"
-image: /images/charles-deluvio-gtuwf3agci0-unsplash.jpg
+image: images/charles-deluvio-gtuwf3agci0-unsplash.jpg
 tags:
   - Coding
 ---

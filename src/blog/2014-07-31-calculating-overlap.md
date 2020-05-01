@@ -3,7 +3,7 @@ layout: post
 title: Calculating the overlap of aerial photos
 author: [Drew Silcock]
 tags: [Coding]
-image: img/demo4.jpg
+image: images/demo4.jpg
 date: "2014-07-05T12:00:00Z"
 draft: false
 ---

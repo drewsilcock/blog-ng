@@ -57,8 +57,8 @@ const config: WebsiteConfig = {
   description:
     "Personal site for technical musings, tips, tutorials & experiments.",
   siteUrl: "https://ng.drewsilcock.co.uk", // full path to blog - no ending slash
-  coverImage: "img/blog-cover.png",
-  logo: "img/ghost-logo.png",
+  coverImage: "images/blog-cover.png",
+  logo: "images/ghost-logo.png",
   lang: "en",
   linkedIn: "https://www.linkedin.com/in/drewsilcock/",
   twitter: "https://twitter.com/drewlhsilcock",

@@ -11,7 +11,7 @@ date: 2014-07-05T12:00:00.000Z
 description: Here's a load of quick snippets of easy-to-forget but often used
   commands, tricks and tips. It's got useful info about git, Vim, Python and
   Perl.
-image: img/demo4.jpg
+image: images/demo4.jpg
 tags:
   - Coding
 ---
