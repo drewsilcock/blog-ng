@@ -3,8 +3,8 @@ layout: post
 title: Calculating the overlap of aerial photos
 author: [Drew Silcock]
 tags: [Coding]
-image: images/demo4.jpg
-date: "2014-07-05T12:00:00Z"
+image: images/computer.jpg
+date: "2014-07-31T12:00:00Z"
 draft: false
 ---
 
@@ -20,7 +20,7 @@ I then go on to show how to simply work out how fast you need to fly your UAV to
 
 The geometry of the situation is shown below:
 
-![geometry of overlap](/public/media/calculating-overlap/overlap.svg)
+![geometry of overlap](/media/calculating-overlap/overlap.svg)
 
 Let's call the inter-photo distance $d_{int}$, the angle of view $\alpha_y$, the height $h$ and the required overlap fraction $\omega$ (i.e. if we want 80% overlap, then $\omega = 0.8$).
 

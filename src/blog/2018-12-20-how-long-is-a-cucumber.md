@@ -6,7 +6,7 @@ layout: post
 author:
   - Drew Silcock
 title: How long is a cucumber? 🥒
-date: 2014-07-05T12:00:00Z
+date: 2018-12-20T12:00:00Z
 description: "Or: UTF-16 handling of astral planes and implications for
   JavaScript string indexing"
 image: images/charles-deluvio-gtuwf3agci0-unsplash.jpg
@@ -30,7 +30,7 @@ Past this continent of common characters lies the vast, largely uninhabited and 
 
 The BMP takes up the first 2<sup>16</sup> code points in the range `0x0000` to `0xffff`. This means that all BMP code points can be represented using only 16 bits or 2 bytes (some fewer). The astral planes, extending from `0x10000` to the full `0x10ffff`, need between 3 and 4 bytes to represent them.
 
-![The 14<sup>th</sup> Century philosopher Nicole Oresmo's astral planes.](/public/media/how-long-is-a-cucumber/astral_planes.jpg)
+![The 14<sup>th</sup> Century philosopher Nicole Oresmo's astral planes.](/media/how-long-is-a-cucumber/astral_planes.jpg)
 
 > The 14<sup>th</sup> Century philosopher Nicole Oresmo demonstrates some astral plane characters. Images such as these would be distributed to the monks of the monasteries to aid their copying of Unicode manuscripts.
 
@@ -180,7 +180,7 @@ You might notice that Rust doesn't provide a standard library way of iterating t
 
 This means that Rust eschews the traditional string O(1) indexing. The pro of this is that you get out of it what you actually *want*, which is the n<sup>th</sup> visible rune instead of the n<sup>th</sup> byte or 16-bit char. The con is that we lose our O(1) speed string indexing as we now have to look through each previous character to check the length before we get to our rune at n, making lookup O(n).
 
-![A comparison of how UTF-16 and UTF-8 index strings.](/public/media/how-long-is-a-cucumber/string_encoding_visual.png)
+![A comparison of how UTF-16 and UTF-8 index strings.](/media/how-long-is-a-cucumber/string_encoding_visual.png)
 
 > A visualisation of how UTF-16 constructs strings compared to UTF-8. The resulting UTF-8 string is shorter, but indexing is not O(n) (as opposed to O(1)) due to the multi-byte nature of the UTF-8 character.
 
@@ -212,7 +212,7 @@ This means that there are 1,111,998 possible characters, of which 974,530 charac
 
 As of Unicode 11.0 (released June 2018), there are 137,439 Unicode codepoints that have assigned values. This graph shows how the Unicode Consortium has assigned codepoints throughout its history:
 
-![Plot showing Unicode codepoints assigned over time](/public/media/how-long-is-a-cucumber/unicode_through_the_ages.svg)
+![Plot showing Unicode codepoints assigned over time](/media/how-long-is-a-cucumber/unicode_through_the_ages.svg)
 
 As you can see, they've still got a lot of possible codepoints to choose from!
 

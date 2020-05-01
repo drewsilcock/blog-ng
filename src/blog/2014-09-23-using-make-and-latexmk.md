@@ -3,8 +3,8 @@ layout: post
 title: Using make and latexmk for easy LaTeX compilation
 author: [Drew Silcock]
 tags: [Coding]
-image: images/demo4.jpg
-date: "2014-07-05T12:00:00Z"
+image: images/computer.jpg
+date: "2014-09-23T12:00:00Z"
 draft: false
 ---
 

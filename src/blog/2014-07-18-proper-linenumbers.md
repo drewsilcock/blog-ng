@@ -3,8 +3,8 @@ layout: post
 title: Proper line numbers with Jekyll
 author: [Drew Silcock]
 tags: [Coding]
-image: images/demo4.jpg
-date: "2014-07-05T12:00:00Z"
+image: images/computer.jpg
+date: "2014-07-18T12:00:00Z"
 draft: false
 ---
 
@@ -12,7 +12,7 @@ By default, Jekyll uses the (excellent) Pygments syntax highlighter for code blo
 
 Here's the default `lineno` option, `inline`:
 
-![lineno=inline](/public/media/proper-linenumbers/lineno_w_inline.png)
+![lineno=inline](/media/proper-linenumbers/lineno_w_inline.png)
 
 This works, but has two main visual and practical problems:
 1. There is no visual separation between the line numbers and the code, causing them to visually become indistinct, and
@@ -22,7 +22,7 @@ So what's the alternative? <!--more-->
 
 Well, Pygments has inbuilt the `table` option, which separates the code from the linenumbers, ostensibly fixing both of these problems. Let's take a look:
 
-![lineno=table](/public/media/proper-linenumbers/lineno_w_table.png)
+![lineno=table](/media/proper-linenumbers/lineno_w_table.png)
 
 Well, as you can see, this doesn't really look good either. The main problems are:
 1. The size of the line number table is inconsistent between codeblocks, and
@@ -85,7 +85,7 @@ pre a:only-of-type::before {
 
 Here's what it produces after adding it to your `syntax.css`:
 
-![beautiful linenumbers](/public/media/proper-linenumbers/lineno_beautiful.png)
+![beautiful linenumbers](/media/proper-linenumbers/lineno_beautiful.png)
 
 Note those important lines at the end of `pre a::before`:
 
@@ -108,7 +108,7 @@ On top of this, the `padding` gives the line numbers a consistent spacing and th
 
 It's not quite that simple, though. These CSS counters need the `lineanchors` option to be given for each codeblock, or it ends up looking like this:
 
-![without lineanchors](/public/media/proper-linenumbers/lineno_wo_lineanchors.png)
+![without lineanchors](/media/proper-linenumbers/lineno_wo_lineanchors.png)
 
 To solve this, you can either just put `lineanchors` in every `highlight` Liquid tag, which is a bit annoying and can easily be forgotten, or you can use a global plugin to allow you to specify global Pygments options in your `_config.yml`. Such a plugin is available [here](https://gist.github.com/danasilver/8121699), thanks to [Dana Silver](https://github.com/danasilver).
 
@@ -126,7 +126,7 @@ Unfortuantely, GitHub Pages doesn't allow for custom Jekyll plugins for security
 
 Another problem I had, although I am unsure whether this problem is universal/reproducible, is that an annoying y-scroll bar appeared, even when there was no need for it. This is what it looked like:
 
-![annoying scroll bar](/public/media/proper-linenumbers/lineno_w_yscroll.png)
+![annoying scroll bar](/media/proper-linenumbers/lineno_w_yscroll.png)
 
 Now, I haven't come all this way just to be bested by an annoying y-scroll bar, so I added in this bit of CSS to Alex's code to get rid of it:
 
