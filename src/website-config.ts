@@ -19,6 +19,10 @@ export interface WebsiteConfig {
   /**
    * full url, no username
    */
+  linkedIn?: string;
+  /**
+   * full url, no username
+   */
   twitter?: string;
   /**
    * hide or show all email subscribe boxes
@@ -56,8 +60,9 @@ const config: WebsiteConfig = {
   coverImage: "img/blog-cover.png",
   logo: "img/ghost-logo.png",
   lang: "en",
+  linkedIn: "https://www.linkedin.com/in/drewsilcock/",
   twitter: "https://twitter.com/drewlhsilcock",
-  showSubscribe: true,
+  showSubscribe: false,
   mailchimpAction:
     "https://twitter.us19.list-manage.com/subscribe/post?u=a89b6987ac248c81b0b7f3a0f&amp;id=7d777b7d75",
   mailchimpName: "b_a89b6987ac248c81b0b7f3a0f_7d777b7d75",

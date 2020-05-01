@@ -12,6 +12,7 @@ import { Facebook } from "../icons/facebook";
 import { Twitter } from "../icons/twitter";
 import { SubscribeModal } from "../subscribe/SubscribeModal";
 import { SiteNavLogo } from "./SiteNavLogo";
+import { LinkedIn } from "../icons/linkedin";
 
 interface SiteNavProps {
   isHome?: boolean;
@@ -117,6 +118,17 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 rel="noopener noreferrer"
               >
                 <Facebook />
+              </a>
+            )}
+            {config.linkedIn && (
+              <a
+                css={[SocialLink]}
+                href={config.linkedIn}
+                target="_blank"
+                title="LinkedIn"
+                rel="noopener noreferrer"
+              >
+                <LinkedIn />
               </a>
             )}
             {config.twitter && (
