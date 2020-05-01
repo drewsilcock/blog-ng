@@ -49,14 +49,14 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: "Ghost",
-  description: "The professional publishing platform",
+  title: "Drew Silcock • stream! { consciousness }",
+  description:
+    "Personal site for technical musings, tips, tutorials & experiments.",
+  siteUrl: "https://ng.drewsilcock.co.uk", // full path to blog - no ending slash
   coverImage: "img/blog-cover.png",
   logo: "img/ghost-logo.png",
   lang: "en",
-  siteUrl: "https://gatsby-casper.netlify.com",
-  facebook: "https://www.facebook.com/ghost",
-  twitter: "https://twitter.com/tryghost",
+  twitter: "https://twitter.com/drewlhsilcock",
   showSubscribe: true,
   mailchimpAction:
     "https://twitter.us19.list-manage.com/subscribe/post?u=a89b6987ac248c81b0b7f3a0f&amp;id=7d777b7d75",
