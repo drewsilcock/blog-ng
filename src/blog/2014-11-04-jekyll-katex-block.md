@@ -1,13 +1,15 @@
 ---
-layout: post
-title: Jekyll KaTeX Block
-author: [Drew Silcock]
-tags: [Coding]
-image: images/computer.jpg
-date: "2014-11-04T12:00:00Z"
 draft: false
+layout: post
+author:
+  - Drew Silcock
+title: Jekyll KaTeX Block
+date: 2014-11-04T12:00:00Z
+description: Rendering equations in Jekyll static sites using a KaTeX plugin.
+image: /images/katex-logo.png
+tags:
+  - Coding
 ---
-
 **Update:** *This site no longer uses Jekyll. Since moving over to [Gatsby](https://www.gatsbyjs.org/), this site uses the excellent [gatsby-remark-katex](https://www.gatsbyjs.org/packages/gatsby-remark-katex/) plugin for rendering equations.*
 
 If you follow [Hacker News](https://news.ycombinator.com/item?id=8320439), then you might've seen the latest development from Khan Academy: [$\KaTeX$](http://khan.github.io/KaTeX/).
@@ -16,22 +18,18 @@ Although it hasn't yet implemented the full set of mathematical symbols, $\KaTeX
 
 It's as simple as adding this plugin to your `_plugins` folder, pointing the plugin to your $\KaTeX$ JavaScript file in `_config.yml`, and including the $\KaTeX$ CSS in the resulting web pages.
 
-For more information, continue reading, or if you want to just go straight to the code, head over to [https://github.com/drewsberry/jekyll-katex-block](https://github.com/drewsberry/jekyll-katex-block).
+For more information, continue reading, or if you want to just go straight to the code, head over to <https://github.com/drewsberry/jekyll-katex-block>.
 
-<!--more-->
-
-Why KaTeX?
-----------
+## Why KaTeX?
 
 So why should you use $\KaTeX$? Well, here's a few reasons:
 
 * It's super fast;
 * It supports server side rendering;
 * Pure CSS (the JS is only necessary is you're rendering client-side);
-* It's [*super*](http://jsperf.com/katex-vs-mathjax) fast.
+* It's *[super](http://jsperf.com/katex-vs-mathjax)* fast.
 
-The Jekyll KaTeX plugin
------------------------
+## The Jekyll KaTeX plugin
 
 So how does this Jekyll plugin fit in?
 
@@ -75,15 +73,13 @@ E = \gamma mc^2
 
 Then the equation will also be cented on the page, with some space above and below. This is achieved using a little bit of inline CSS injected into the equation.
 
-How to install it
------------------
+## How to install it
 
 If you've already got the $\KaTeX$ JavaScript installed on your system, as well as the CSS files and the font files, then all you need to do is drop [jekyll-katex-block.rb](https://raw.githubusercontent.com/drewsberry/jekyll-katex-block/master/katex_block.rb) into your `_plugins` directory in your project, and you're ready to go!
 
 Just make sure that you're loading the CSS in your web page (but *not* the JavaScript) and have the font files available.
 
-Options
--------
+## Options
 
 You can specify where to tell the plugin to look for your JavaScript file in your `_config.yml` with the following:
 
@@ -92,8 +88,7 @@ katex:
     path_to_js: "./the/path/to/your/js"
 ```
 
-Troubleshooting
----------------
+## Troubleshooting
 
 If you're seeing a bunch of weird symbols instead of your equations, then it's probably because you're not using UTF-8. This is what it'll look like:
 
@@ -125,6 +120,7 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 ```
 
 But if your server can't find the font files, it'll output the following:
+
 ```shell
 127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found
 127.0.0.1 - - [04/Nov/2014 12:23:26] "GET /fonts/KaTeX_Math-Italic.woff HTTP/1.1" 404 -
@@ -138,12 +134,10 @@ To solve this, put all your $\KaTeX$ font files in in the same directory as your
 
 Now you should be back to how it's supposed to look:
 
-$$
-K_0 = \sqrt{\frac{m}{ih t}} e^{-\frac{m(x-x')^2}{i\frac{h}{2\pi} t}}
+$$ K_0 = \sqrt{\frac{m}{ih t}} e^{-\frac{m(x-x')^2}{i\frac{h}{2\pi} t}}
 $$
 
-How it works
-------------
+## How it works
 
 The plugin basically works by compiling $\KaTeX$ within the Ruby script using the [ExecJS](https://rubygems.org/gems/execjs) module. The JavaScript function `renderToString` is then called from this compiled JavaScript on the content inside the block. This converts the content from $\LaTeX$ to HTML.
 
