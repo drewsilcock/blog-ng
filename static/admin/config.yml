@@ -17,12 +17,13 @@ collections:
     label: Blog
     folder: src/blog
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}/index"
+    media_folder: ""
     fields:
-      - label: Template Key
-        name: templateKey
+      - label: Layout
+        name: layout
         widget: hidden
-        default: blog-post
+        default: post
 
       - label: Title
         name: title
@@ -35,6 +36,10 @@ collections:
       - label: Publish Date
         name: date
         widget: datetime
+
+      - label: Author
+        name: author
+        widget: list
 
       - label: Draft
         name: draft
@@ -61,4 +66,8 @@ collections:
 
       - label: Tags
         name: tags
+        widget: list
+
+      - label: Keywords
+        name: keywords
         widget: list
