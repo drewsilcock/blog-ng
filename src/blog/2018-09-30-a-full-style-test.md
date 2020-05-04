@@ -1,8 +1,11 @@
 ---
 layout: post
 title: A Full and Comprehensive Style Test
+permalink: full-style-test
+description: Style test
 image: images/testimg-cover.jpg
 author: [Ghost]
+draft: false
 date: 2018-09-30T07:03:47.149Z
 tags:
   - Tests

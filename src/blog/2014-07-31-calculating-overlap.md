@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Calculating the overlap of aerial photos
+permalink: calculating-overlap
 author: [Drew Silcock]
-tags: [Coding]
+tags: [Photogrammetry]
 image: images/computer.jpg
 date: "2014-07-31T12:00:00Z"
 draft: false

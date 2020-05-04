@@ -40,6 +40,7 @@ export const ReadNextCard: React.FC<ReadNextProps> = props => {
       <ReadNextCardContent className="read-next-card-content">
         <ul>
           {props.relatedPosts.edges.map(n => {
+            const postPath = `/blog/${n.node.fields.slug}`
             const date = new Date(n.node.frontmatter.date);
             // 2018-08-20
             const datetime = format(date, "yyyy-MM-dd");
@@ -48,7 +49,7 @@ export const ReadNextCard: React.FC<ReadNextProps> = props => {
             return (
               <li key={n.node.frontmatter.title}>
                 <h4>
-                  <Link to={n.node.fields.slug}>
+                  <Link to={postPath}>
                     {n.node.frontmatter.title}
                   </Link>
                 </h4>

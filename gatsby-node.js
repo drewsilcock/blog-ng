@@ -60,6 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
             timeToRead
             frontmatter {
               title
+              permalink
               tags
               date
               draft
@@ -137,12 +138,15 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   posts.forEach(({ node }, index) => {
+    const { permalink } = node.frontmatter;
     const { slug, layout } = node.fields;
     const prev = index === 0 ? null : posts[index - 1].node;
     const next = index === posts.length - 1 ? null : posts[index + 1].node;
 
+    const postPath = `/blog/${permalink || slug}/`;
+
     createPage({
-      path: slug,
+      path: postPath,
       // This will automatically resolve the template to a corresponding
       // `layout` frontmatter in the Markdown.
       //

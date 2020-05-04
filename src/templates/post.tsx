@@ -98,6 +98,7 @@ export interface PageContext {
     };
     excerpt: string;
     title: string;
+    slug?: string;
     date: string;
     draft?: boolean;
     tags: string[];

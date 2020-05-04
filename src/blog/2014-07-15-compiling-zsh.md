@@ -1,5 +1,6 @@
 ---
 layout: post
+permalink: compiling-zsh
 title: Compiling zsh without root
 author: [Drew Silcock]
 tags: [Coding]

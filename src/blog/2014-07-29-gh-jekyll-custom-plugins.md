@@ -1,5 +1,6 @@
 ---
 title: Custom Jekyll plugins with GitHub Pages
+permalink: custom-jekyll-plugins
 layout: post
 author: [Drew Silcock]
 tags: [Coding]

@@ -1,8 +1,9 @@
 ---
 layout: post
+permalink: meters-per-pixel
 title: Calculating meters per pixel from aerial photographs
 author: [Drew Silcock]
-tags: [Coding]
+tags: [Photogrammetry]
 image: images/computer.jpg
 date: "2014-07-21T12:00:00Z"
 draft: false

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using make and latexmk for easy LaTeX compilation
+permalink: using-make-and-latexmk
 author: [Drew Silcock]
 tags: [Coding]
 image: images/computer.jpg

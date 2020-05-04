@@ -1,5 +1,6 @@
 ---
 layout: post
+permalink: proper-linenumbers
 title: Proper line numbers with Jekyll
 author: [Drew Silcock]
 tags: [Coding]

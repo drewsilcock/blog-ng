@@ -1,12 +1,13 @@
 ---
-draft: false
+title: Jekyll KaTeX Block
+permalink: jekyll-katex-block
 layout: post
+draft: false
 author:
   - Drew Silcock
-title: Jekyll KaTeX Block
 date: 2014-11-04T12:00:00Z
 description: Rendering equations in Jekyll static sites using a KaTeX plugin.
-image: /images/katex-logo.png
+image: images/katex-logo.png
 tags:
   - Coding
 ---
@@ -134,7 +135,8 @@ To solve this, put all your $\KaTeX$ font files in in the same directory as your
 
 Now you should be back to how it's supposed to look:
 
-$$ K_0 = \sqrt{\frac{m}{ih t}} e^{-\frac{m(x-x')^2}{i\frac{h}{2\pi} t}}
+$$
+K_0 = \sqrt{\frac{m}{ih t}} e^{-\frac{m(x-x')^2}{i\frac{h}{2\pi} t}}
 $$
 
 ## How it works

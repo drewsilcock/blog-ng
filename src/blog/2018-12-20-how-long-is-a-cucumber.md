@@ -1,11 +1,12 @@
 ---
+title: How long is a cucumber? 🥒
+permalink: how-long-is-a-cucumber
+layout: post
 draft: false
 excerpt: "Or: UTF-16 handling of astral planes and implications for JavaScript
   string indexing"
-layout: post
 author:
   - Drew Silcock
-title: How long is a cucumber? 🥒
 date: 2018-12-20T12:00:00Z
 description: "Or: UTF-16 handling of astral planes and implications for
   JavaScript string indexing"

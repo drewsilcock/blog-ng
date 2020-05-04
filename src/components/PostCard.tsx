@@ -18,6 +18,7 @@ export interface PostCardProps {
 }
 
 export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
+  const path = `/blog/${post.fields.slug}`;
   const date = new Date(post.frontmatter.date);
   // 2018-08-20
   const datetime = format(date, "yyyy-MM-dd");
@@ -35,7 +36,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
         <Link
           className="post-card-image-link"
           css={PostCardImageLink}
-          to={post.fields.slug}
+          to={path}
         >
           <PostCardImage className="post-card-image">
             {post.frontmatter?.image?.childImageSharp?.fluid && (
@@ -52,7 +53,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
         <Link
           className="post-card-content-link"
           css={PostCardContentLink}
-          to={post.fields.slug}
+          to={path}
         >
           <PostCardHeader className="post-card-header">
             {post.frontmatter.tags && (
