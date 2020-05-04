@@ -62,7 +62,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-canonical-urls",
       options: {
-        siteUrl: "https://gatsby-casper.netlify.com",
+        siteUrl: "https://ng.drewsilcock.co.uk",
       },
     },
     "gatsby-plugin-emotion",

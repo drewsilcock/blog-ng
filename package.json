@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-casper",
+  "name": "drew-silcock-blog",
   "description": "Casper for gatsby",
   "version": "0.0.0",
   "private": true,
@@ -8,6 +8,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
+    "serve": "serve -s public",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
     "format": "prettier --write \"{gatsby-*.js,src/**/*.{js,ts,jsx,tsx,html,css}}\"",
