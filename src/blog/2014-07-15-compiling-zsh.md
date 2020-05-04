@@ -7,11 +7,15 @@ tags: [Coding]
 image: images/computer.jpg
 date: "2014-07-05T14:00:00Z"
 draft: false
+keywords:
+  - compiling
+  - make
+  - zsh
+  - no root
+  - shell
 ---
 
 This article describes how to compile zshell on a Linux machine without root, for instance when working remotely on a server on which you do not have root.
-
-<!--more-->
 
 ## Step 1: Dependencies
 

@@ -7,6 +7,12 @@ tags: [Coding]
 image: images/computer.jpg
 date: "2014-09-23T12:00:00Z"
 draft: false
+keywords:
+  - make
+  - latexmk
+  - compilation
+  - continuous
+  - pdflatex
 ---
 
 Still running `pdflatex` (or equivalent) every time you want to recompile your $\LaTeX$ document? There's a simpler way using `make` and `latexmk`. All you need is a simple `Makefile` and you can tell $\LaTeX$ to automatically recompile your document every time you change a file, and run `pdflatex` the sufficient number of times to get cross-references right.

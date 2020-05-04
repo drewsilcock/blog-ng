@@ -60,6 +60,7 @@ interface PageTemplateProps {
         excerpt: string;
         tags: string[];
         author: Author[];
+        keywords: string[];
       };
     };
     relatedPosts: {
@@ -103,6 +104,7 @@ export interface PageContext {
     draft?: boolean;
     tags: string[];
     author: Author[];
+    keywords: [];
   };
 }
 
@@ -129,9 +131,11 @@ const PageTemplate: React.FC<PageTemplateProps> = props => {
     <IndexLayout className="post-template">
       <Helmet>
         <html lang={config.lang} />
-        <title>{post.frontmatter.title}</title>
+        <title>{post.frontmatter.title} • {config.author}</title>
 
         <meta name="description" content={post.excerpt} />
+        <meta name="keywords" content={post.frontmatter.keywords.join(",")} />
+        <meta name="author" content={post.frontmatter.author.join(", ")} />
         <meta property="og:site_name" content={config.title} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.frontmatter.title} />
@@ -490,6 +494,7 @@ export const query = graphql`
         userDate: date(formatString: "D MMMM YYYY")
         date
         tags
+        keywords
         excerpt
         image {
           childImageSharp {

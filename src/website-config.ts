@@ -1,4 +1,5 @@
 export interface WebsiteConfig {
+  author: string;
   title: string;
   description: string;
   coverImage?: string;
@@ -53,6 +54,7 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
+  author: "Drew Silcock",
   title: "Drew Silcock • stream! { consciousness }",
   description:
     "Personal site for technical musings, tips, tutorials & experiments.",

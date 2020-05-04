@@ -10,6 +10,12 @@ description: Rendering equations in Jekyll static sites using a KaTeX plugin.
 image: images/katex-logo.png
 tags:
   - Coding
+keywords:
+  - jekyll
+  - katex
+  - plugin
+  - jamstack
+  - static
 ---
 **Update:** *This site no longer uses Jekyll. Since moving over to [Gatsby](https://www.gatsbyjs.org/), this site uses the excellent [gatsby-remark-katex](https://www.gatsbyjs.org/packages/gatsby-remark-katex/) plugin for rendering equations.*
 

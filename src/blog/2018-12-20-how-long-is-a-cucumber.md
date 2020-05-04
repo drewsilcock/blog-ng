@@ -13,6 +13,13 @@ description: "Or: UTF-16 handling of astral planes and implications for
 image: images/charles-deluvio-gtuwf3agci0-unsplash.jpg
 tags:
   - Coding
+keywords:
+  - unicode
+  - encoding
+  - utf-8
+  - utf-16
+  - javascript
+  - indexing
 ---
 
 **tldr**: 2.

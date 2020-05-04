@@ -1,20 +1,21 @@
 ---
-draft: false
-permalink: coding-cheatsheet
-excerpt: Here's a load of quick snippets of easy-to-forget but often used
-  commands, tricks and tips. It's got useful info about git, Vim, Python and
-  Perl.
-layout: post
-author:
-  - Drew Silcock
 title: Coding cheatsheet
+permalink: coding-cheatsheet
+layout: post
+draft: false
 date: 2014-07-05T12:00:00.000Z
 description: Here's a load of quick snippets of easy-to-forget but often used
   commands, tricks and tips. It's got useful info about git, Vim, Python and
   Perl.
+author: [Drew Silcock]
 image: images/computer.jpg
-tags:
-  - Coding
+tags: [Coding]
+keywords:
+  - cheatsheet
+  - coding
+  - git
+  - vim
+  - python
 ---
 ## Git
 

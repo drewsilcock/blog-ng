@@ -7,6 +7,12 @@ tags: [Coding]
 image: images/computer.jpg
 date: "2014-07-18T12:00:00Z"
 draft: false
+keywords:
+  - jekyll
+  - plugin
+  - code blocks
+  - line numbers
+  - css
 ---
 
 By default, Jekyll uses the (excellent) Pygments syntax highlighter for code blocks. While this works well, the line numbers it produces are less than satisfactory.

@@ -7,6 +7,9 @@ tags: [Photogrammetry]
 image: images/computer.jpg
 date: "2014-07-31T12:00:00Z"
 draft: false
+keywords:
+  - photogrammetry
+  - aerial-photography
 ---
 
 The setup is as follows: you have a camera attached to a UAV which is taking pictures regularly every five seconds, and you need at least 80% overlap between the photos in order to properly stitch them together into a Digital Elevation Model (DEM). What do you do? How far apart should each photo be? How fast do you need to fly your UAV in order to achieve this?
