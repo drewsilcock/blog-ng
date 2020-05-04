@@ -356,7 +356,7 @@ const PostFullTags = styled.section`
 const PostFullCustomExcerpt = styled.p`
   margin: 20px 0 0;
   color: var(--midgrey);
-  font-family: Georgia, serif;
+  font-family: Roboto, Georgia, serif;
   font-size: 2.3rem;
   line-height: 1.4em;
   font-weight: 300;

@@ -81,6 +81,16 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-google-fonts",
+      options: {
+        fonts: [
+          "roboto",
+          "ubuntu mono",
+        ],
+        display: "swap",
+      }
+    },
+    {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-XXXX-Y",

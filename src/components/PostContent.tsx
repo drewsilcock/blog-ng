@@ -34,7 +34,7 @@ export const PostFullContent = styled.section`
   margin: 0 auto;
   padding: 0 170px 6vw;
   min-height: 230px;
-  font-family: Georgia, serif;
+  font-family: Roboto, Georgia, serif;
   font-size: 2rem;
   line-height: 1.6em;
   background: #fff;
@@ -339,7 +339,7 @@ export const PostFullContent = styled.section`
     border: 0;
     /* color: var(--blue); */
     color: ${colors.blue};
-    font-family: Georgia, serif;
+    font-family: Roboto, Georgia, serif;
     font-size: 3.2rem;
     line-height: 1.35em;
     text-align: center;
@@ -534,10 +534,11 @@ export const PostFullContent = styled.section`
   /* Taken from overreacted https://github.com/gaearon/overreacted.io/blob/942b41555f5e5ccbb5f93f6c26142cd90b314236/src/utils/global.css#L68 */
   code[class*="language-"],
   pre[class*="language-"] {
-    color: white;
+    color: ${colors.codeText};
     background: none;
-    font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New,
+    font-family: "Ubuntu Mono", Consolas, Menlo, Monaco, source-code-pro, "Courier New",
       monospace;
+    font-size: medium;
     font-feature-settings: normal;
     text-align: left;
     white-space: pre;
@@ -586,10 +587,10 @@ export const PostFullContent = styled.section`
   }
 
   /* Inline code */
-  :not(pre) > code[class*="language-"] {
+  p > code[class*="language-"] {
     border-radius: 0.3em;
-    background: var(--inlineCode-bg);
-    color: var(--inlineCode-text);
+    background: ${colors.codeBackground};
+    color: ${colors.codeText};
     padding: 0.15em 0.2em 0.05em;
     white-space: normal;
   }
@@ -675,7 +676,7 @@ export const PostFullContent = styled.section`
     margin-left: -1.3125rem;
     margin-right: -1.3125rem;
     border-radius: 10px;
-    background: #011627;
+    background: ${colors.codeBackground};
     -webkit-overflow-scrolling: touch;
     overflow: auto;
   }
