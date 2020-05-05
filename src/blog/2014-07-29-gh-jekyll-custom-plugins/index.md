@@ -38,14 +38,14 @@ Master contains compiled HTML, source contains the Jekyll source.
 
 In the `.gitignore` of the `source` branch, you put the following:
 
-```shell
+```bash
 _site
 ```
 
 Then, when you run `jekyll build` and Jekyll produces all the HTML in `_site`, git doesn't recognise it. That means that we can `cd` into `_site`, and seeing as git doesn't know the difference, we can make `_site` itself into its own git repository.
 
 Assuming you're starting off with a bog standard single branch Pages repo, you run:
-```shell
+```bash
 # Make sure _site is empty before we begin
 rm -rf _site/*
 
@@ -81,7 +81,7 @@ git branch --set-upstream master origin/master
 Now you've got your source branch set up in your root directory and master branch set up in your `_site` directory, ready for rapid building and deployment of your Jekyll website.
 
 Now each time you want to build your site locally, you just need to run:
-```shell
+```bash
 jekyll build
 cd _site
 git add .
@@ -96,7 +96,7 @@ include: .nojekyll
 
 Now, to automate this process, I wrote a small bash script to build, commit and push your site all in one command. Here is the [gist of it](https://gist.github.com/drewsberry/1b9fc80682edd8bcecc4), and this is the script:
 
-```shell
+```bash
 #!/bin/bash
  
 if [[ -z "$1" ]]; then
@@ -115,6 +115,6 @@ jekyll build && \
 
 So if I wanted to build my site locally and push it to my repository with the commit message "Latest build", I would run:
 
-```shell
+```bash
 jekgit.sh "Latest build"
 ```

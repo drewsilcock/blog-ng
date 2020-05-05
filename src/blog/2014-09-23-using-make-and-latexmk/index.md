@@ -30,7 +30,7 @@ For the purposes of this article, I assume that you're using `pdflatex`, but all
 
 The basic syntax of `latexmk` is as follows:
 
-```shell
+```bash
 $ latexmk $OPTIONS -pdflatex="$COMPILATION_COMMAND $PDFLATEX_OPTIONS %O %S" yourtexfile.tex
 ```
 

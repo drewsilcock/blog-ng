@@ -113,7 +113,7 @@ If you're seeing your equations, but they don't have any special formatting and 
 
 Then it's probably because your server can't find the font files. You can test this out by doing the following:
 
-```shell
+```bash
 $ jekyll build
 $ cd _site
 $ python -m http.server
@@ -121,14 +121,14 @@ $ python -m http.server
 
 Go to your web page in question with your web browser, and look at the output of your Python session. It should say something like:
 
-```shell
+```bash
 Serving HTTP on 0.0.0.0 port 8000 ...
 127.0.0.1 - - [04/Nov/2014 12:18:07] "GET / HTTP/1.1" 200 -
 ```
 
 But if your server can't find the font files, it'll output the following:
 
-```shell
+```bash
 127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found
 127.0.0.1 - - [04/Nov/2014 12:23:26] "GET /fonts/KaTeX_Math-Italic.woff HTTP/1.1" 404 -
 127.0.0.1 - - [04/Nov/2014 12:23:26] code 404, message File not found

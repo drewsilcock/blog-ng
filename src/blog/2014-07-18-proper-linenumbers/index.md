@@ -152,7 +152,7 @@ Dana's global configs Jekyll plugin is incompatible with the new Jekyll 2.2.0 re
 
 I always forget to do this, and could not be bothered to go through each codeblock in each blog post I've written, so here's a simple bash script to replace all instances of the `highlight lang` Liquid tag with its `lineanchors` equivalent:
 
-```shell
+```bash
 #!/bin/bash
 
 # Adds lineanchors option to all codeblock Liquid tags

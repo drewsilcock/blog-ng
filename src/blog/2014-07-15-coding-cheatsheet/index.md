@@ -23,7 +23,7 @@ keywords:
 
 These are the things you need to do when using `git` on a new computer:
 
-```shell
+```bash
 # Change username associated with commits
 git config --global user.name "<USER>"
 
@@ -47,13 +47,13 @@ git config --global color.ui true
 
 Add remote repository:
 
-```shell
+```bash
 git remote add origin https://github.com/username/repository.git
 ```
 
 Then subsequently set local branch to track remote branch:
 
-```shell
+```bash
 git branch --set-upstream master origin/<branch>
 ```
 
@@ -73,7 +73,7 @@ Adding submodules in a git repository is as simple as editing the file `.gitmodu
 
 Then a quick:
 
-```shell
+```bash
 git submodule init
 git submodule update
 ```
@@ -82,7 +82,7 @@ git submodule update
 
 You might be tempted to think that updating all your submodules from their respective remotes is as simple as running `git submodule update`. But no, what that does is update the submodules to the version checked out in the remote of the root repo. What you need is to update the version of the submodules that is checked out by the root repo. Here's how to do it, assuming your submodule is called `subm`:
 
-```shell
+```bash
 # Change into your submodule directory
 cd subm
 
@@ -102,7 +102,7 @@ And you're done! It can be a bit annoying for updating loads of subdirectories, 
 
 If you've got nested submodules (i.e. a submodule within another submodule), then you need to do alter this slightly to update the nested submodules. As well as having each submodule within your submodule containing a `[submodule "foobar"]` within both your root `.gitmodules` and your submodule `.gitmodules`, you need to do the following from within the root repository to update all submodules and subsubmodules:
 
-```shell
+```bash
 git submodule update --init --recursive
 ```
 
@@ -139,13 +139,13 @@ au BufRead,BufNewFile *.moo set filetype=moo
 
 Vim comes with the ability to edit files remotely over scp. This can be achieved via:
 
-```shell
+```bash
 vim scp://user@servername//path/to/file
 ```
 
 However, trying to save gives the error:
 
-```shell
+```bash
 E382: Cannot write, 'buftype' option is set
 ```
 
@@ -159,7 +159,7 @@ In fact, running `set buftype?` reveals that `buftype` is set to `nofile`, meani
 
 To allow other non-root users to access a filesystem mounted over ssh, use:
 
-```shell
+```bash
 sshfs -o allow_other user@servername:/path/to/content /path/to/local/mountpoint
 ```
 
@@ -297,12 +297,12 @@ __builtins__.__dict__
 
 Probably the most useful thing that `perl` can do is `perl -pi -e`, often lovingly called Perl Pie. The syntax is:
 
-```shell
+```bash
 perl -pi -e "s/string to find/string to replace/g" filenames
 ```
 
 This replaces `string to find` with `string to replace` in filenames. This is fully regex compatible. For instance, if I wanted to replace `mispelt` with `misspelt` in all files ending in `.txt`, I would run:
 
-```shell
+```bash
 perl -pi -e "s/mispelt/misspelt/g" *.txt
 ```

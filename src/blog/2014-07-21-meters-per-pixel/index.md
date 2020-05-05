@@ -72,7 +72,7 @@ $$
 
 The camera resolution should be displayed on the camera specifications, or in the camera settings dialogue. If you don't have access to this information, it can also be read directly from the EXIF metadata using [`exiftool`](http://www.sno.phy.queensu.ca/~phil/exiftool/):
 
-```shell
+```bash
 > exiftool photo.jpg
 ...
 Image Size: 4608x3456 # This is the camera resolution
