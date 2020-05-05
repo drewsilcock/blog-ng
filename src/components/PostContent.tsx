@@ -530,6 +530,25 @@ export const PostFullContent = styled.section`
     }
   }
 
+  a.anchor.before {
+    box-shadow: none;
+  }
+
+  a.anchor.before > svg {
+    fill: black;
+    transition: all 0.2s ease-in-out;
+  }
+
+  a.anchor.before:hover > svg {
+    fill: ${colors.blue};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a.anchor.before > svg {
+      fill: white;
+    }
+  }
+
   /* Start Syntax Highlighting */
   /* Taken from overreacted https://github.com/gaearon/overreacted.io/blob/942b41555f5e5ccbb5f93f6c26142cd90b314236/src/utils/global.css#L68 */
   code[class*="language-"],

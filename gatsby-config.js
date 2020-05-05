@@ -38,6 +38,7 @@ module.exports = {
               wrapperStyle: "margin-bottom: 1rem",
             },
           },
+          "gatsby-remark-autolink-headers", // This must come before 'gatsby-remark-prismjs'
           "gatsby-remark-prismjs",
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-smartypants",
