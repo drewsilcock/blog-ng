@@ -39,7 +39,12 @@ module.exports = {
             },
           },
           "gatsby-remark-autolink-headers", // This must come before 'gatsby-remark-prismjs'
-          "gatsby-remark-prismjs",
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              inlineCodeMarker: "›" // This is non-ascii U+203A: https://graphemica.com/%E2%80%BA
+            }
+          },
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-smartypants",
           "gatsby-remark-abbr",

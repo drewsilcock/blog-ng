@@ -100,7 +100,7 @@ Typographically, preformatted text is not the same thing as code. Sometimes, a f
 
 ### Code
 
-Code can be presented inline, like `<?php bloginfo('stylesheet_url'); ?>`, or using [jekyll's highlight
+Code can be presented inline, like `php›<?php bloginfo('stylesheet_url'); ?>`, or using [jekyll's highlight
 filter](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) to
 highlight a block of code. Because we have more specific typographic needs for code, we’ll specify Consolas and Monaco ahead of the browser-defined monospace font.
 
