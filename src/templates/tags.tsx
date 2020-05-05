@@ -63,7 +63,7 @@ const Tags: React.FC<TagTemplateProps> = props => {
 
   return (
     <IndexLayout>
-      <Helmet>
+      <Helmet defer={false}>
         <html lang={config.lang} />
         <title>
           {tag} - {config.title}

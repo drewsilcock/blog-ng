@@ -4,8 +4,8 @@ import { Global, css } from "@emotion/core";
 import { lighten } from "polished";
 
 // @ts-ignore
-import favicon from "../../src/favicon.ico";
 import { colors } from "../styles/colors";
+import config from "../website-config";
 
 interface IndexProps {
   className?: string;
@@ -14,8 +14,21 @@ interface IndexProps {
 const IndexLayout: React.FC<IndexProps> = props => {
   return (
     <div className={props.className}>
-      <Helmet>
-        <link rel="icon" href={favicon} type="image/x-icon" />
+      <Helmet defer={false}>
+        <html lang={config.lang} />
+        <title>{config.title}</title>
+
+        <meta name="description" content={config.description} />
+        <meta name="keywords" content="blog,code,d3t,stfc,hartree" />
+        <meta name="author" content={config.author} />
+        <meta property="og:site_name" content={config.title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={config.title} />
+        <meta property="og:description" content={config.description} />
+        <meta
+          property="og:url"
+          content={config.siteUrl}
+        />
       </Helmet>
       <Global
         styles={css`

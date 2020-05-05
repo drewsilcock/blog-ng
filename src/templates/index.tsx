@@ -55,7 +55,7 @@ const IndexPage: React.FC<IndexProps> = props => {
 
   return (
     <IndexLayout css={HomePosts}>
-      <Helmet>
+      <Helmet defer={false}>
         <html lang={config.lang} />
         <title>{config.title}</title>
         <meta name="description" content={config.description} />

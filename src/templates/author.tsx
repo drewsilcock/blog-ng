@@ -89,7 +89,7 @@ const Author: React.FC<AuthorTemplateProps> = props => {
 
   return (
     <IndexLayout>
-      <Helmet>
+      <Helmet defer={false}>
         <html lang={config.lang} />
         <title>
           {author.id} - {config.title}

@@ -29,6 +29,28 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Drew Silcock",
+        short_name: "Drew Silcock",
+        start_url: "/",
+        background_color: "#191b1f",
+        theme_color: "#fff",
+        display: "standalone",
+        icon: "static/media/icon.png",
+        cache_busting_mode: "none",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        precachePages: ["/", "/blog/*", "/about/", "/tags/", "/tags/*", "/archive/"],
+        workboxConfig: {
+          globPatterns: ["**/*"],
+        },
+      },
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [

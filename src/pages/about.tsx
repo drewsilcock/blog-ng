@@ -41,7 +41,7 @@ const PageTemplate = css`
 
 const About: React.FC = () => (
   <IndexLayout>
-    <Helmet>
+    <Helmet defer={false}>
       <title>About</title>
     </Helmet>
     <Wrapper css={PageTemplate}>
