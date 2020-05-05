@@ -606,7 +606,7 @@ export const PostFullContent = styled.section`
   }
 
   /* Inline code */
-  p > code[class*="language-"] {
+  *:not(pre) > code[class*="language-"] {
     border-radius: 0.3em;
     background: ${colors.codeBackground};
     color: ${colors.codeText};
