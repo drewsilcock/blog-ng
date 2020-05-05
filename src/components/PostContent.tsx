@@ -703,6 +703,26 @@ export const PostFullContent = styled.section`
   .gatsby-highlight pre[class*='language-'] {
     float: left;
     min-width: 100%;
+
+    border-radius: 0.3em;
+    margin: 0.5em 0;
+    padding: 1em;
+    overflow: auto;
+  }
+
+  .gatsby-highlight pre[class*='language-'].line-numbers {
+    padding: 0;
+    padding-left: 2.8em;
+    overflow: initial;
+  }
+
+  pre[class*="language-"].line-numbers > code {
+    left: 5px;
+  }
+
+  .gatsby-highlight pre[class*='language-'].line-numbers .line-numbers-rows {
+    border-right-color: rgba(153, 153, 153, 0.5);
+    margin-left: 9px;
   }
   /* End Syntax Highlighting */
 `;

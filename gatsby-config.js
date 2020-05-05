@@ -42,8 +42,9 @@ module.exports = {
           {
             resolve: "gatsby-remark-prismjs",
             options: {
-              inlineCodeMarker: "›" // This is non-ascii U+203A: https://graphemica.com/%E2%80%BA
-            }
+              inlineCodeMarker: "›", // This is non-ascii U+203A: https://graphemica.com/%E2%80%BA
+              showLineNumbers: true,
+            },
           },
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-smartypants",
